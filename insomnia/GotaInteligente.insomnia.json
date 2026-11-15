@@ -1,0 +1,557 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-11-15T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v8.6.1",
+  "resources": [
+    {
+      "_id": "wrk_gota_inteligente",
+      "_type": "workspace",
+      "name": "Gota Inteligente - API (GS SOA)",
+      "description": "Testes manuais da API da CitizenTech Gota Inteligente",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "parentId": "wrk_gota_inteligente",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:5080"
+      }
+    },
+    {
+      "_id": "fld_1_fazendas",
+      "_type": "request_group",
+      "parentId": "wrk_gota_inteligente",
+      "name": "1 Fazendas",
+      "metaSortKey": 1
+    },
+    {
+      "_id": "req_001",
+      "_type": "request",
+      "parentId": "fld_1_fazendas",
+      "name": "[200] Listar fazendas",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/fazendas",
+      "metaSortKey": 1,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_002",
+      "_type": "request",
+      "parentId": "fld_1_fazendas",
+      "name": "[200] Listar por município",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/fazendas?municipio=São Paulo",
+      "metaSortKey": 2,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_003",
+      "_type": "request",
+      "parentId": "fld_1_fazendas",
+      "name": "[200] Obter fazenda 1",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/fazendas/1",
+      "metaSortKey": 3,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_004",
+      "_type": "request",
+      "parentId": "fld_1_fazendas",
+      "name": "[404] Obter fazenda inexistente",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/fazendas/999",
+      "metaSortKey": 4,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_005",
+      "_type": "request",
+      "parentId": "fld_1_fazendas",
+      "name": "[201] Criar fazenda",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/fazendas",
+      "metaSortKey": 5,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Sítio Novo Horizonte\",\n  \"proprietario\": \"Agricultor Exemplo 3\",\n  \"municipio\": \"São Paulo\",\n  \"estado\": \"SP\",\n  \"areaHectares\": 3.2\n}"
+      }
+    },
+    {
+      "_id": "req_006",
+      "_type": "request",
+      "parentId": "fld_1_fazendas",
+      "name": "[400] Criar fazenda inválida (sem nome, UF com 3 letras)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/fazendas",
+      "metaSortKey": 6,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"\",\n  \"proprietario\": \"Agricultor Exemplo\",\n  \"municipio\": \"São Paulo\",\n  \"estado\": \"SPX\",\n  \"areaHectares\": 1\n}"
+      }
+    },
+    {
+      "_id": "req_007",
+      "_type": "request",
+      "parentId": "fld_1_fazendas",
+      "name": "[204] Atualizar fazenda 1",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/api/fazendas/1",
+      "metaSortKey": 7,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Sítio Boa Esperança\",\n  \"proprietario\": \"Agricultor Exemplo 1\",\n  \"municipio\": \"São Paulo\",\n  \"estado\": \"SP\",\n  \"areaHectares\": 5.0\n}"
+      }
+    },
+    {
+      "_id": "req_008",
+      "_type": "request",
+      "parentId": "fld_1_fazendas",
+      "name": "[204] Remover fazenda 3 (criada no teste de criação)",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/api/fazendas/3",
+      "metaSortKey": 8,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "fld_2_talhoes",
+      "_type": "request_group",
+      "parentId": "wrk_gota_inteligente",
+      "name": "2 Talhoes",
+      "metaSortKey": 2
+    },
+    {
+      "_id": "req_009",
+      "_type": "request",
+      "parentId": "fld_2_talhoes",
+      "name": "[200] Listar talhões",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/talhoes",
+      "metaSortKey": 9,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_010",
+      "_type": "request",
+      "parentId": "fld_2_talhoes",
+      "name": "[200] Listar talhões da fazenda 1",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/talhoes?fazendaId=1",
+      "metaSortKey": 10,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_011",
+      "_type": "request",
+      "parentId": "fld_2_talhoes",
+      "name": "[200] Obter talhão 1 (com nível de estresse)",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/talhoes/1",
+      "metaSortKey": 11,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_012",
+      "_type": "request",
+      "parentId": "fld_2_talhoes",
+      "name": "[201] Criar talhão",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/talhoes",
+      "metaSortKey": 12,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"fazendaId\": 1,\n  \"nome\": \"Horta Leste\",\n  \"cultura\": \"Cenoura\",\n  \"areaHectares\": 0.6,\n  \"umidadeIdealMinima\": 38\n}"
+      }
+    },
+    {
+      "_id": "req_013",
+      "_type": "request",
+      "parentId": "fld_2_talhoes",
+      "name": "[404] Criar talhão em fazenda inexistente",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/talhoes",
+      "metaSortKey": 13,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"fazendaId\": 999,\n  \"nome\": \"Teste\",\n  \"cultura\": \"Milho\",\n  \"areaHectares\": 1,\n  \"umidadeIdealMinima\": 40\n}"
+      }
+    },
+    {
+      "_id": "req_014",
+      "_type": "request",
+      "parentId": "fld_2_talhoes",
+      "name": "[400] Criar talhão com umidade ideal fora da faixa",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/talhoes",
+      "metaSortKey": 14,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"fazendaId\": 1,\n  \"nome\": \"Teste\",\n  \"cultura\": \"Milho\",\n  \"areaHectares\": 1,\n  \"umidadeIdealMinima\": 150\n}"
+      }
+    },
+    {
+      "_id": "req_015",
+      "_type": "request",
+      "parentId": "fld_2_talhoes",
+      "name": "[204] Atualizar talhão 1",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/api/talhoes/1",
+      "metaSortKey": 15,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"fazendaId\": 1,\n  \"nome\": \"Horta Norte\",\n  \"cultura\": \"Alface\",\n  \"areaHectares\": 0.8,\n  \"umidadeIdealMinima\": 45\n}"
+      }
+    },
+    {
+      "_id": "fld_3_sensores",
+      "_type": "request_group",
+      "parentId": "wrk_gota_inteligente",
+      "name": "3 Sensores",
+      "metaSortKey": 3
+    },
+    {
+      "_id": "req_016",
+      "_type": "request",
+      "parentId": "fld_3_sensores",
+      "name": "[200] Listar sensores",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/sensores",
+      "metaSortKey": 16,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_017",
+      "_type": "request",
+      "parentId": "fld_3_sensores",
+      "name": "[200] Obter sensor 1",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/sensores/1",
+      "metaSortKey": 17,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_018",
+      "_type": "request",
+      "parentId": "fld_3_sensores",
+      "name": "[200] Histórico de leituras do sensor 1",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/sensores/1/leituras?limite=10",
+      "metaSortKey": 18,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_019",
+      "_type": "request",
+      "parentId": "fld_3_sensores",
+      "name": "[201] Cadastrar sensor",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/sensores",
+      "metaSortKey": 19,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"talhaoId\": 1,\n  \"codigo\": \"ESP32-010\",\n  \"ativo\": true\n}"
+      }
+    },
+    {
+      "_id": "req_020",
+      "_type": "request",
+      "parentId": "fld_3_sensores",
+      "name": "[409] Cadastrar sensor com código duplicado",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/sensores",
+      "metaSortKey": 20,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"talhaoId\": 1,\n  \"codigo\": \"ESP32-001\",\n  \"ativo\": true\n}"
+      }
+    },
+    {
+      "_id": "req_021",
+      "_type": "request",
+      "parentId": "fld_3_sensores",
+      "name": "[404] Cadastrar sensor em talhão inexistente",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/sensores",
+      "metaSortKey": 21,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"talhaoId\": 999,\n  \"codigo\": \"ESP32-099\",\n  \"ativo\": true\n}"
+      }
+    },
+    {
+      "_id": "fld_4_leituras_(esp32)",
+      "_type": "request_group",
+      "parentId": "wrk_gota_inteligente",
+      "name": "4 Leituras (ESP32)",
+      "metaSortKey": 4
+    },
+    {
+      "_id": "req_022",
+      "_type": "request",
+      "parentId": "fld_4_leituras_(esp32)",
+      "name": "[201] Enviar leitura de umidade",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/leituras",
+      "metaSortKey": 22,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"sensorCodigo\": \"ESP32-001\",\n  \"umidadePercentual\": 28.5\n}"
+      }
+    },
+    {
+      "_id": "req_023",
+      "_type": "request",
+      "parentId": "fld_4_leituras_(esp32)",
+      "name": "[400] Umidade fora de 0-100",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/leituras",
+      "metaSortKey": 23,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"sensorCodigo\": \"ESP32-001\",\n  \"umidadePercentual\": 130\n}"
+      }
+    },
+    {
+      "_id": "req_024",
+      "_type": "request",
+      "parentId": "fld_4_leituras_(esp32)",
+      "name": "[404] Sensor não cadastrado",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/leituras",
+      "metaSortKey": 24,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"sensorCodigo\": \"ESP32-XYZ\",\n  \"umidadePercentual\": 40\n}"
+      }
+    },
+    {
+      "_id": "fld_5_recomendacoes_(ia_e_mobile)",
+      "_type": "request_group",
+      "parentId": "wrk_gota_inteligente",
+      "name": "5 Recomendacoes (IA e Mobile)",
+      "metaSortKey": 5
+    },
+    {
+      "_id": "req_025",
+      "_type": "request",
+      "parentId": "fld_5_recomendacoes_(ia_e_mobile)",
+      "name": "[201] IA envia recomendação (não irrigar)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/recomendacoes",
+      "metaSortKey": 25,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"talhaoId\": 1,\n  \"acao\": \"NaoIrrigar\",\n  \"motivo\": \"Bomba desligada: 90% de chance de chuva nas próximas 2 horas.\",\n  \"probabilidadeChuvaPercentual\": 90,\n  \"umidadeSoloPercentual\": 28.5,\n  \"origem\": \"modelo-ml\"\n}"
+      }
+    },
+    {
+      "_id": "req_026",
+      "_type": "request",
+      "parentId": "fld_5_recomendacoes_(ia_e_mobile)",
+      "name": "[404] Recomendação para talhão inexistente",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/recomendacoes",
+      "metaSortKey": 26,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"talhaoId\": 999,\n  \"acao\": \"Irrigar\",\n  \"motivo\": \"Teste\",\n  \"probabilidadeChuvaPercentual\": 10,\n  \"umidadeSoloPercentual\": 20\n}"
+      }
+    },
+    {
+      "_id": "req_027",
+      "_type": "request",
+      "parentId": "fld_5_recomendacoes_(ia_e_mobile)",
+      "name": "[400] Ação inválida",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/recomendacoes",
+      "metaSortKey": 27,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"talhaoId\": 1,\n  \"acao\": \"Explodir\",\n  \"motivo\": \"Teste\",\n  \"probabilidadeChuvaPercentual\": 10,\n  \"umidadeSoloPercentual\": 20\n}"
+      }
+    },
+    {
+      "_id": "req_028",
+      "_type": "request",
+      "parentId": "fld_5_recomendacoes_(ia_e_mobile)",
+      "name": "[200] Histórico do talhão 1",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/talhoes/1/recomendacoes",
+      "metaSortKey": 28,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_029",
+      "_type": "request",
+      "parentId": "fld_5_recomendacoes_(ia_e_mobile)",
+      "name": "[200] Último alerta do talhão 1 (app mobile)",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/talhoes/1/recomendacoes/ultima",
+      "metaSortKey": 29,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_030",
+      "_type": "request",
+      "parentId": "fld_5_recomendacoes_(ia_e_mobile)",
+      "name": "[404] Último alerta de talhão sem recomendações",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/talhoes/999/recomendacoes/ultima",
+      "metaSortKey": 30,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "fld_6_painel_(winforms)",
+      "_type": "request_group",
+      "parentId": "wrk_gota_inteligente",
+      "name": "6 Painel (WinForms)",
+      "metaSortKey": 6
+    },
+    {
+      "_id": "req_031",
+      "_type": "request",
+      "parentId": "fld_6_painel_(winforms)",
+      "name": "[200] Estresse hídrico por fazenda",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/painel/estresse-hidrico",
+      "metaSortKey": 31,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_032",
+      "_type": "request",
+      "parentId": "fld_6_painel_(winforms)",
+      "name": "[200] Estresse hídrico filtrado por município",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/painel/estresse-hidrico?municipio=São Paulo",
+      "metaSortKey": 32,
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_033",
+      "_type": "request",
+      "parentId": "fld_6_painel_(winforms)",
+      "name": "[200] Resumo e indicador de impacto",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/painel/resumo",
+      "metaSortKey": 33,
+      "headers": [],
+      "body": {}
+    }
+  ]
+}
