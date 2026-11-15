@@ -1,0 +1,27 @@
+TESTE 22 - [201] Enviar leitura de umidade
+Executado em: 15/11/2026 17:29:30  (25 ms)
+
+>>> REQUISICAO
+POST http://localhost:5080/api/leituras
+Content-Type: application/json
+
+{
+  "sensorCodigo": "ESP32-001",
+  "umidadePercentual": 28.5
+}
+
+<<< RESPOSTA
+HTTP 201 Created
+Location: /api/sensores/1/leituras
+
+{
+    "id":  16,
+    "sensorId":  1,
+    "sensorCodigo":  "ESP32-001",
+    "talhaoId":  1,
+    "umidadePercentual":  28.5,
+    "dataHora":  "2026-11-15T20:29:30.9237635Z",
+    "nivelEstresseHidrico":  "Moderado"
+}
+
+RESULTADO: esperado 201, obtido 201 -> PASSOU

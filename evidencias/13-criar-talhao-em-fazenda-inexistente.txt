@@ -1,0 +1,25 @@
+TESTE 13 - [404] Criar talhão em fazenda inexistente
+Executado em: 15/11/2026 17:29:30  (4 ms)
+
+>>> REQUISICAO
+POST http://localhost:5080/api/talhoes
+Content-Type: application/json
+
+{
+  "fazendaId": 999,
+  "nome": "Teste",
+  "cultura": "Milho",
+  "areaHectares": 1,
+  "umidadeIdealMinima": 40
+}
+
+<<< RESPOSTA
+HTTP 404 Not Found
+
+
+{
+    "title":  "Fazenda não encontrada",
+    "status":  404
+}
+
+RESULTADO: esperado 404, obtido 404 -> PASSOU

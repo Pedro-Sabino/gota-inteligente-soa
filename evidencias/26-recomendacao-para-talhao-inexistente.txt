@@ -1,0 +1,25 @@
+TESTE 26 - [404] Recomendação para talhão inexistente
+Executado em: 15/11/2026 17:29:30  (4 ms)
+
+>>> REQUISICAO
+POST http://localhost:5080/api/recomendacoes
+Content-Type: application/json
+
+{
+  "talhaoId": 999,
+  "acao": "Irrigar",
+  "motivo": "Teste",
+  "probabilidadeChuvaPercentual": 10,
+  "umidadeSoloPercentual": 20
+}
+
+<<< RESPOSTA
+HTTP 404 Not Found
+
+
+{
+    "title":  "Talhão não encontrado",
+    "status":  404
+}
+
+RESULTADO: esperado 404, obtido 404 -> PASSOU

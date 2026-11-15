@@ -1,0 +1,29 @@
+TESTE 23 - [400] Umidade fora de 0-100
+Executado em: 15/11/2026 17:29:30  (3 ms)
+
+>>> REQUISICAO
+POST http://localhost:5080/api/leituras
+Content-Type: application/json
+
+{
+  "sensorCodigo": "ESP32-001",
+  "umidadePercentual": 130
+}
+
+<<< RESPOSTA
+HTTP 400 Bad Request
+
+
+{
+    "type":  "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+    "title":  "One or more validation errors occurred.",
+    "status":  400,
+    "errors":  {
+                   "UmidadePercentual":  [
+                                             "The field UmidadePercentual must be between 0 and 100."
+                                         ]
+               },
+    "traceId":  "00-ea4b2cdb2c60a332e05e82d17f537a29-bb4f63b7e2796cc9-00"
+}
+
+RESULTADO: esperado 400, obtido 400 -> PASSOU

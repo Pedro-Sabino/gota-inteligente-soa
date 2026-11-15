@@ -1,0 +1,23 @@
+TESTE 21 - [404] Cadastrar sensor em talhão inexistente
+Executado em: 15/11/2026 17:29:30  (3 ms)
+
+>>> REQUISICAO
+POST http://localhost:5080/api/sensores
+Content-Type: application/json
+
+{
+  "talhaoId": 999,
+  "codigo": "ESP32-099",
+  "ativo": true
+}
+
+<<< RESPOSTA
+HTTP 404 Not Found
+
+
+{
+    "title":  "Talhão não encontrado",
+    "status":  404
+}
+
+RESULTADO: esperado 404, obtido 404 -> PASSOU

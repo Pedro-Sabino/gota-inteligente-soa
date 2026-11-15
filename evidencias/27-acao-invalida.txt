@@ -1,0 +1,35 @@
+TESTE 27 - [400] Ação inválida
+Executado em: 15/11/2026 17:29:30  (5 ms)
+
+>>> REQUISICAO
+POST http://localhost:5080/api/recomendacoes
+Content-Type: application/json
+
+{
+  "talhaoId": 1,
+  "acao": "Explodir",
+  "motivo": "Teste",
+  "probabilidadeChuvaPercentual": 10,
+  "umidadeSoloPercentual": 20
+}
+
+<<< RESPOSTA
+HTTP 400 Bad Request
+
+
+{
+    "type":  "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+    "title":  "One or more validation errors occurred.",
+    "status":  400,
+    "errors":  {
+                   "dto":  [
+                               "The dto field is required."
+                           ],
+                   "$.acao":  [
+                                  "The JSON value could not be converted to GotaInteligente.Api.Domain.AcaoIrrigacao. Path: $.acao | LineNumber: 2 | BytePositionInLine: 20."
+                              ]
+               },
+    "traceId":  "00-df15b3e8ada964f0a47d92ecce99fc97-60d555726cb5fa3a-00"
+}
+
+RESULTADO: esperado 400, obtido 400 -> PASSOU

@@ -1,0 +1,22 @@
+TESTE 24 - [404] Sensor não cadastrado
+Executado em: 15/11/2026 17:29:30  (4 ms)
+
+>>> REQUISICAO
+POST http://localhost:5080/api/leituras
+Content-Type: application/json
+
+{
+  "sensorCodigo": "ESP32-XYZ",
+  "umidadePercentual": 40
+}
+
+<<< RESPOSTA
+HTTP 404 Not Found
+
+
+{
+    "title":  "Sensor não cadastrado",
+    "status":  404
+}
+
+RESULTADO: esperado 404, obtido 404 -> PASSOU

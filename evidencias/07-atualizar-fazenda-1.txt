@@ -1,0 +1,22 @@
+TESTE 7 - [204] Atualizar fazenda 1
+Executado em: 15/11/2026 17:29:30  (22 ms)
+
+>>> REQUISICAO
+PUT http://localhost:5080/api/fazendas/1
+Content-Type: application/json
+
+{
+  "nome": "Sítio Boa Esperança",
+  "proprietario": "Agricultor Exemplo 1",
+  "municipio": "São Paulo",
+  "estado": "SP",
+  "areaHectares": 5.0
+}
+
+<<< RESPOSTA
+HTTP 204 No Content
+
+
+(sem corpo)
+
+RESULTADO: esperado 204, obtido 204 -> PASSOU

@@ -22,7 +22,7 @@ echo [2/3] Commitando no git...
 where git >nul 2>&1 || (echo Git nao encontrado. & goto erro)
 if not exist ".git" git init -b main
 git add -A
-git commit -m "docs: reorganiza prompts utilizados por etapa" || echo (nada novo para commitar)
+git commit -m "test: evidencias dos testes manuais da API" || echo (nada novo para commitar)
 
 echo.
 echo [3/3] Publicando no GitHub...

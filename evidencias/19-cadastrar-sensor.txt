@@ -1,0 +1,26 @@
+TESTE 19 - [201] Cadastrar sensor
+Executado em: 15/11/2026 17:29:30  (20 ms)
+
+>>> REQUISICAO
+POST http://localhost:5080/api/sensores
+Content-Type: application/json
+
+{
+  "talhaoId": 1,
+  "codigo": "ESP32-010",
+  "ativo": true
+}
+
+<<< RESPOSTA
+HTTP 201 Created
+Location: http://localhost:5080/api/Sensores/4
+
+{
+    "id":  4,
+    "talhaoId":  1,
+    "codigo":  "ESP32-010",
+    "ativo":  true,
+    "totalLeituras":  0
+}
+
+RESULTADO: esperado 201, obtido 201 -> PASSOU

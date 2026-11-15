@@ -1,0 +1,31 @@
+TESTE 12 - [201] Criar talhão
+Executado em: 15/11/2026 17:29:30  (24 ms)
+
+>>> REQUISICAO
+POST http://localhost:5080/api/talhoes
+Content-Type: application/json
+
+{
+  "fazendaId": 1,
+  "nome": "Horta Leste",
+  "cultura": "Cenoura",
+  "areaHectares": 0.6,
+  "umidadeIdealMinima": 38
+}
+
+<<< RESPOSTA
+HTTP 201 Created
+Location: http://localhost:5080/api/Talhoes/4
+
+{
+    "id":  4,
+    "fazendaId":  1,
+    "nome":  "Horta Leste",
+    "cultura":  "Cenoura",
+    "areaHectares":  0.6,
+    "umidadeIdealMinima":  38,
+    "ultimaUmidade":  null,
+    "nivelEstresseHidrico":  "SemDados"
+}
+
+RESULTADO: esperado 201, obtido 201 -> PASSOU

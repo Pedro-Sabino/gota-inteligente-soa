@@ -1,0 +1,32 @@
+TESTE 5 - [201] Criar fazenda
+Executado em: 15/11/2026 17:29:30  (50 ms)
+
+>>> REQUISICAO
+POST http://localhost:5080/api/fazendas
+Content-Type: application/json
+
+{
+  "nome": "Sítio Novo Horizonte",
+  "proprietario": "Agricultor Exemplo 3",
+  "municipio": "São Paulo",
+  "estado": "SP",
+  "areaHectares": 3.2
+}
+
+<<< RESPOSTA
+HTTP 201 Created
+Location: http://localhost:5080/api/Fazendas/3
+
+{
+    "id":  3,
+    "nome":  "Sítio Novo Horizonte",
+    "proprietario":  "Agricultor Exemplo 3",
+    "municipio":  "São Paulo",
+    "estado":  "SP",
+    "areaHectares":  3.2,
+    "latitude":  null,
+    "longitude":  null,
+    "quantidadeTalhoes":  0
+}
+
+RESULTADO: esperado 201, obtido 201 -> PASSOU

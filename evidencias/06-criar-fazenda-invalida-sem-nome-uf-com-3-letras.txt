@@ -1,0 +1,35 @@
+TESTE 6 - [400] Criar fazenda inválida (sem nome, UF com 3 letras)
+Executado em: 15/11/2026 17:29:30  (6 ms)
+
+>>> REQUISICAO
+POST http://localhost:5080/api/fazendas
+Content-Type: application/json
+
+{
+  "nome": "",
+  "proprietario": "Agricultor Exemplo",
+  "municipio": "São Paulo",
+  "estado": "SPX",
+  "areaHectares": 1
+}
+
+<<< RESPOSTA
+HTTP 400 Bad Request
+
+
+{
+    "type":  "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+    "title":  "One or more validation errors occurred.",
+    "status":  400,
+    "errors":  {
+                   "Nome":  [
+                                "The Nome field is required."
+                            ],
+                   "Estado":  [
+                                  "The field Estado must be a string with a minimum length of 2 and a maximum length of 2."
+                              ]
+               },
+    "traceId":  "00-3ac72d3914b880a3930e268f2585411f-7ea8358d9718e9ed-00"
+}
+
+RESULTADO: esperado 400, obtido 400 -> PASSOU

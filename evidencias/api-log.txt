@@ -1,0 +1,559 @@
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "__EFMigrationsHistory" (
+          "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+          "ProductVersion" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20261115200259_CriacaoInicial'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Fazendas" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Fazendas" PRIMARY KEY AUTOINCREMENT,
+          "Nome" TEXT NOT NULL,
+          "Proprietario" TEXT NOT NULL,
+          "Municipio" TEXT NOT NULL,
+          "Estado" TEXT NOT NULL,
+          "AreaHectares" REAL NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Talhoes" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Talhoes" PRIMARY KEY AUTOINCREMENT,
+          "FazendaId" INTEGER NOT NULL,
+          "Nome" TEXT NOT NULL,
+          "Cultura" TEXT NOT NULL,
+          "AreaHectares" REAL NOT NULL,
+          "UmidadeIdealMinima" REAL NOT NULL,
+          CONSTRAINT "FK_Talhoes_Fazendas_FazendaId" FOREIGN KEY ("FazendaId") REFERENCES "Fazendas" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Recomendacoes" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Recomendacoes" PRIMARY KEY AUTOINCREMENT,
+          "TalhaoId" INTEGER NOT NULL,
+          "Acao" TEXT NOT NULL,
+          "Motivo" TEXT NOT NULL,
+          "ProbabilidadeChuvaPercentual" REAL NOT NULL,
+          "UmidadeSoloPercentual" REAL NOT NULL,
+          "Origem" TEXT NOT NULL,
+          "CriadaEm" TEXT NOT NULL,
+          CONSTRAINT "FK_Recomendacoes_Talhoes_TalhaoId" FOREIGN KEY ("TalhaoId") REFERENCES "Talhoes" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Sensores" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Sensores" PRIMARY KEY AUTOINCREMENT,
+          "TalhaoId" INTEGER NOT NULL,
+          "Codigo" TEXT NOT NULL,
+          "Ativo" INTEGER NOT NULL,
+          CONSTRAINT "FK_Sensores_Talhoes_TalhaoId" FOREIGN KEY ("TalhaoId") REFERENCES "Talhoes" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Leituras" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Leituras" PRIMARY KEY AUTOINCREMENT,
+          "SensorId" INTEGER NOT NULL,
+          "UmidadePercentual" REAL NOT NULL,
+          "DataHora" TEXT NOT NULL,
+          CONSTRAINT "FK_Leituras_Sensores_SensorId" FOREIGN KEY ("SensorId") REFERENCES "Sensores" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Leituras_SensorId_DataHora" ON "Leituras" ("SensorId", "DataHora");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Recomendacoes_TalhaoId_CriadaEm" ON "Recomendacoes" ("TalhaoId", "CriadaEm");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_Sensores_Codigo" ON "Sensores" ("Codigo");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Sensores_TalhaoId" ON "Sensores" ("TalhaoId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Talhoes_FazendaId" ON "Talhoes" ("FazendaId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20261115200259_CriacaoInicial', '8.0.11');
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20261115201606_AdicionaCoordenadasFazenda'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Fazendas" ADD "Latitude" REAL NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Fazendas" ADD "Longitude" REAL NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20261115201606_AdicionaCoordenadasFazenda', '8.0.11');
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Fazendas" AS "f")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (Size = 2), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (Size = 9), @p5='?' (Size = 19), @p6='?' (Size = 20)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Fazendas" ("AreaHectares", "Estado", "Latitude", "Longitude", "Municipio", "Nome", "Proprietario")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (Size = 2), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (Size = 9), @p5='?' (Size = 17), @p6='?' (Size = 20)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Fazendas" ("AreaHectares", "Estado", "Latitude", "Longitude", "Municipio", "Nome", "Proprietario")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p7='?' (DbType = Double), @p8='?' (Size = 6), @p9='?' (DbType = Int32), @p10='?' (Size = 11), @p11='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Talhoes" ("AreaHectares", "Cultura", "FazendaId", "Nome", "UmidadeIdealMinima")
+      VALUES (@p7, @p8, @p9, @p10, @p11)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (Size = 6), @p2='?' (DbType = Int32), @p3='?' (Size = 9), @p4='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Talhoes" ("AreaHectares", "Cultura", "FazendaId", "Nome", "UmidadeIdealMinima")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (Size = 5), @p2='?' (DbType = Int32), @p3='?' (Size = 18), @p4='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Talhoes" ("AreaHectares", "Cultura", "FazendaId", "Nome", "UmidadeIdealMinima")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p5='?' (DbType = Boolean), @p6='?' (Size = 9), @p7='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Sensores" ("Ativo", "Codigo", "TalhaoId")
+      VALUES (@p5, @p6, @p7)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (Size = 9), @p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Sensores" ("Ativo", "Codigo", "TalhaoId")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (Size = 9), @p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Sensores" ("Ativo", "Codigo", "TalhaoId")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@p3='?' (DbType = DateTime), @p4='?' (DbType = Int32), @p5='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p3, @p4, @p5)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AreaHectares", "t"."Cultura", "t"."FazendaId", "t"."Nome", "t"."UmidadeIdealMinima"
+      FROM "Talhoes" AS "t"
+      ORDER BY "t"."Id"
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 10), @p1='?' (DbType = DateTime), @p2='?' (Size = 61), @p3='?' (Size = 13), @p4='?' (DbType = Double), @p5='?' (DbType = Int32), @p6='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Recomendacoes" ("Acao", "CriadaEm", "Motivo", "Origem", "ProbabilidadeChuvaPercentual", "TalhaoId", "UmidadeSoloPercentual")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5080
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Pedro Paulo\Documents\gota-inteligente-soa\GotaInteligente.Api
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."AreaHectares", "f"."Estado", "f"."Latitude", "f"."Longitude", "f"."Municipio", "f"."Nome", "f"."Proprietario", (
+          SELECT COUNT(*)
+          FROM "Talhoes" AS "t"
+          WHERE "f"."Id" = "t"."FazendaId") AS "Qtd"
+      FROM "Fazendas" AS "f"
+      ORDER BY "f"."Nome"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."AreaHectares", "f"."Estado", "f"."Latitude", "f"."Longitude", "f"."Municipio", "f"."Nome", "f"."Proprietario", (
+          SELECT COUNT(*)
+          FROM "Talhoes" AS "t"
+          WHERE "f"."Id" = "t"."FazendaId") AS "Qtd"
+      FROM "Fazendas" AS "f"
+      ORDER BY "f"."Nome"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__municipio_0='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."AreaHectares", "f"."Estado", "f"."Latitude", "f"."Longitude", "f"."Municipio", "f"."Nome", "f"."Proprietario", (
+          SELECT COUNT(*)
+          FROM "Talhoes" AS "t"
+          WHERE "f"."Id" = "t"."FazendaId") AS "Qtd"
+      FROM "Fazendas" AS "f"
+      WHERE "f"."Municipio" = @__municipio_0
+      ORDER BY "f"."Nome"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."AreaHectares", "f"."Estado", "f"."Latitude", "f"."Longitude", "f"."Municipio", "f"."Nome", "f"."Proprietario", (
+          SELECT COUNT(*)
+          FROM "Talhoes" AS "t"
+          WHERE "f"."Id" = "t"."FazendaId") AS "Qtd"
+      FROM "Fazendas" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."AreaHectares", "f"."Estado", "f"."Latitude", "f"."Longitude", "f"."Municipio", "f"."Nome", "f"."Proprietario", (
+          SELECT COUNT(*)
+          FROM "Talhoes" AS "t"
+          WHERE "f"."Id" = "t"."FazendaId") AS "Qtd"
+      FROM "Fazendas" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (Size = 2), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (Size = 9), @p5='?' (Size = 20), @p6='?' (Size = 20)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Fazendas" ("AreaHectares", "Estado", "Latitude", "Longitude", "Municipio", "Nome", "Proprietario")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."AreaHectares", "f"."Estado", "f"."Latitude", "f"."Longitude", "f"."Municipio", "f"."Nome", "f"."Proprietario"
+      FROM "Fazendas" AS "f"
+      WHERE "f"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Fazendas" SET "AreaHectares" = @p0, "Latitude" = @p1, "Longitude" = @p2
+      WHERE "Id" = @p3
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."AreaHectares", "f"."Estado", "f"."Latitude", "f"."Longitude", "f"."Municipio", "f"."Nome", "f"."Proprietario"
+      FROM "Fazendas" AS "f"
+      WHERE "f"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "Fazendas"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."FazendaId", "t"."Nome", "t"."Cultura", "t"."AreaHectares", "t"."UmidadeIdealMinima", (
+          SELECT "l"."UmidadePercentual"
+          FROM "Leituras" AS "l"
+          INNER JOIN "Sensores" AS "s" ON "l"."SensorId" = "s"."Id"
+          WHERE "s"."TalhaoId" = "t"."Id"
+          ORDER BY "l"."DataHora" DESC
+          LIMIT 1) AS "UltimaUmidade"
+      FROM "Talhoes" AS "t"
+      ORDER BY "t"."Nome"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__fazendaId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."FazendaId", "t"."Nome", "t"."Cultura", "t"."AreaHectares", "t"."UmidadeIdealMinima", (
+          SELECT "l"."UmidadePercentual"
+          FROM "Leituras" AS "l"
+          INNER JOIN "Sensores" AS "s" ON "l"."SensorId" = "s"."Id"
+          WHERE "s"."TalhaoId" = "t"."Id"
+          ORDER BY "l"."DataHora" DESC
+          LIMIT 1) AS "UltimaUmidade"
+      FROM "Talhoes" AS "t"
+      WHERE "t"."FazendaId" = @__fazendaId_0
+      ORDER BY "t"."Nome"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."FazendaId", "t"."Nome", "t"."Cultura", "t"."AreaHectares", "t"."UmidadeIdealMinima", (
+          SELECT "l"."UmidadePercentual"
+          FROM "Leituras" AS "l"
+          INNER JOIN "Sensores" AS "s" ON "l"."SensorId" = "s"."Id"
+          WHERE "s"."TalhaoId" = "t"."Id"
+          ORDER BY "l"."DataHora" DESC
+          LIMIT 1) AS "UltimaUmidade"
+      FROM "Talhoes" AS "t"
+      WHERE "t"."Id" = @__id_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__dto_FazendaId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Fazendas" AS "f"
+          WHERE "f"."Id" = @__dto_FazendaId_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (Size = 7), @p2='?' (DbType = Int32), @p3='?' (Size = 11), @p4='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Talhoes" ("AreaHectares", "Cultura", "FazendaId", "Nome", "UmidadeIdealMinima")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__talhao_Id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."FazendaId", "t"."Nome", "t"."Cultura", "t"."AreaHectares", "t"."UmidadeIdealMinima", (
+          SELECT "l"."UmidadePercentual"
+          FROM "Leituras" AS "l"
+          INNER JOIN "Sensores" AS "s" ON "l"."SensorId" = "s"."Id"
+          WHERE "s"."TalhaoId" = "t"."Id"
+          ORDER BY "l"."DataHora" DESC
+          LIMIT 1) AS "UltimaUmidade"
+      FROM "Talhoes" AS "t"
+      WHERE "t"."Id" = @__talhao_Id_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__dto_FazendaId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Fazendas" AS "f"
+          WHERE "f"."Id" = @__dto_FazendaId_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AreaHectares", "t"."Cultura", "t"."FazendaId", "t"."Nome", "t"."UmidadeIdealMinima"
+      FROM "Talhoes" AS "t"
+      WHERE "t"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__dto_FazendaId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Fazendas" AS "f"
+          WHERE "f"."Id" = @__dto_FazendaId_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Ativo", "s"."Codigo", "s"."TalhaoId", (
+          SELECT COUNT(*)
+          FROM "Leituras" AS "l"
+          WHERE "s"."Id" = "l"."SensorId") AS "Total"
+      FROM "Sensores" AS "s"
+      ORDER BY "s"."Codigo"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Ativo", "s"."Codigo", "s"."TalhaoId", (
+          SELECT COUNT(*)
+          FROM "Leituras" AS "l"
+          WHERE "s"."Id" = "l"."SensorId") AS "Total"
+      FROM "Sensores" AS "s"
+      WHERE "s"."Id" = @__id_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Ativo", "s"."Codigo", "s"."TalhaoId", "t"."Id", "t"."AreaHectares", "t"."Cultura", "t"."FazendaId", "t"."Nome", "t"."UmidadeIdealMinima"
+      FROM "Sensores" AS "s"
+      INNER JOIN "Talhoes" AS "t" ON "s"."TalhaoId" = "t"."Id"
+      WHERE "s"."Id" = @__id_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."Id", "l"."DataHora", "l"."SensorId", "l"."UmidadePercentual"
+      FROM "Leituras" AS "l"
+      WHERE "l"."SensorId" = @__id_0
+      ORDER BY "l"."DataHora" DESC
+      LIMIT @__p_1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__dto_TalhaoId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Talhoes" AS "t"
+          WHERE "t"."Id" = @__dto_TalhaoId_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__dto_Codigo_0='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Sensores" AS "s"
+          WHERE "s"."Codigo" = @__dto_Codigo_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (Size = 9), @p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Sensores" ("Ativo", "Codigo", "TalhaoId")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__dto_TalhaoId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Talhoes" AS "t"
+          WHERE "t"."Id" = @__dto_TalhaoId_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__dto_Codigo_0='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Sensores" AS "s"
+          WHERE "s"."Codigo" = @__dto_Codigo_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__dto_TalhaoId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Talhoes" AS "t"
+          WHERE "t"."Id" = @__dto_TalhaoId_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__dto_SensorCodigo_0='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Ativo", "s"."Codigo", "s"."TalhaoId", "t"."Id", "t"."AreaHectares", "t"."Cultura", "t"."FazendaId", "t"."Nome", "t"."UmidadeIdealMinima"
+      FROM "Sensores" AS "s"
+      INNER JOIN "Talhoes" AS "t" ON "s"."TalhaoId" = "t"."Id"
+      WHERE "s"."Codigo" = @__dto_SensorCodigo_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Leituras" ("DataHora", "SensorId", "UmidadePercentual")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__dto_SensorCodigo_0='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Ativo", "s"."Codigo", "s"."TalhaoId", "t"."Id", "t"."AreaHectares", "t"."Cultura", "t"."FazendaId", "t"."Nome", "t"."UmidadeIdealMinima"
+      FROM "Sensores" AS "s"
+      INNER JOIN "Talhoes" AS "t" ON "s"."TalhaoId" = "t"."Id"
+      WHERE "s"."Codigo" = @__dto_SensorCodigo_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__dto_TalhaoId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Talhoes" AS "t"
+          WHERE "t"."Id" = @__dto_TalhaoId_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 10), @p1='?' (DbType = DateTime), @p2='?' (Size = 61), @p3='?' (Size = 9), @p4='?' (DbType = Double), @p5='?' (DbType = Int32), @p6='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Recomendacoes" ("Acao", "CriadaEm", "Motivo", "Origem", "ProbabilidadeChuvaPercentual", "TalhaoId", "UmidadeSoloPercentual")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__dto_TalhaoId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Talhoes" AS "t"
+          WHERE "t"."Id" = @__dto_TalhaoId_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__talhaoId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Talhoes" AS "t"
+          WHERE "t"."Id" = @__talhaoId_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__talhaoId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "r"."Id", "r"."Acao", "r"."CriadaEm", "r"."Motivo", "r"."Origem", "r"."ProbabilidadeChuvaPercentual", "r"."TalhaoId", "r"."UmidadeSoloPercentual"
+      FROM "Recomendacoes" AS "r"
+      WHERE "r"."TalhaoId" = @__talhaoId_0
+      ORDER BY "r"."CriadaEm" DESC
+      LIMIT @__p_1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__talhaoId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "r"."Id", "r"."Acao", "r"."CriadaEm", "r"."Motivo", "r"."Origem", "r"."ProbabilidadeChuvaPercentual", "r"."TalhaoId", "r"."UmidadeSoloPercentual"
+      FROM "Recomendacoes" AS "r"
+      WHERE "r"."TalhaoId" = @__talhaoId_0
+      ORDER BY "r"."CriadaEm" DESC
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__talhaoId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "r"."Id", "r"."Acao", "r"."CriadaEm", "r"."Motivo", "r"."Origem", "r"."ProbabilidadeChuvaPercentual", "r"."TalhaoId", "r"."UmidadeSoloPercentual"
+      FROM "Recomendacoes" AS "r"
+      WHERE "r"."TalhaoId" = @__talhaoId_0
+      ORDER BY "r"."CriadaEm" DESC
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."Nome", "t"."Cultura", "t"."UmidadeIdealMinima", "t"."FazendaId", "f"."Nome" AS "FazendaNome", "f"."Municipio", (
+          SELECT "l"."UmidadePercentual"
+          FROM "Leituras" AS "l"
+          INNER JOIN "Sensores" AS "s" ON "l"."SensorId" = "s"."Id"
+          WHERE "s"."TalhaoId" = "t"."Id"
+          ORDER BY "l"."DataHora" DESC
+          LIMIT 1) AS "Ultima"
+      FROM "Talhoes" AS "t"
+      INNER JOIN "Fazendas" AS "f" ON "t"."FazendaId" = "f"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__municipio_0='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."Nome", "t"."Cultura", "t"."UmidadeIdealMinima", "t"."FazendaId", "f"."Nome" AS "FazendaNome", "f"."Municipio", (
+          SELECT "l"."UmidadePercentual"
+          FROM "Leituras" AS "l"
+          INNER JOIN "Sensores" AS "s" ON "l"."SensorId" = "s"."Id"
+          WHERE "s"."TalhaoId" = "t"."Id"
+          ORDER BY "l"."DataHora" DESC
+          LIMIT 1) AS "Ultima"
+      FROM "Talhoes" AS "t"
+      INNER JOIN "Fazendas" AS "f" ON "t"."FazendaId" = "f"."Id"
+      WHERE "f"."Municipio" = @__municipio_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."Nome", "t"."Cultura", "t"."UmidadeIdealMinima", "t"."FazendaId", "f"."Nome" AS "FazendaNome", "f"."Municipio", (
+          SELECT "l"."UmidadePercentual"
+          FROM "Leituras" AS "l"
+          INNER JOIN "Sensores" AS "s" ON "l"."SensorId" = "s"."Id"
+          WHERE "s"."TalhaoId" = "t"."Id"
+          ORDER BY "l"."DataHora" DESC
+          LIMIT 1) AS "Ultima"
+      FROM "Talhoes" AS "t"
+      INNER JOIN "Fazendas" AS "f" ON "t"."FazendaId" = "f"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__limite_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Recomendacoes" AS "r"
+      WHERE "r"."CriadaEm" >= @__limite_0 AND "r"."Acao" IN ('Aguardar', 'NaoIrrigar')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Fazendas" AS "f"

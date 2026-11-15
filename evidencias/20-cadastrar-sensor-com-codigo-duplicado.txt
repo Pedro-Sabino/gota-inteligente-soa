@@ -1,0 +1,23 @@
+TESTE 20 - [409] Cadastrar sensor com código duplicado
+Executado em: 15/11/2026 17:29:30  (6 ms)
+
+>>> REQUISICAO
+POST http://localhost:5080/api/sensores
+Content-Type: application/json
+
+{
+  "talhaoId": 1,
+  "codigo": "ESP32-001",
+  "ativo": true
+}
+
+<<< RESPOSTA
+HTTP 409 Conflict
+
+
+{
+    "title":  "Já existe um sensor com esse código",
+    "status":  409
+}
+
+RESULTADO: esperado 409, obtido 409 -> PASSOU
