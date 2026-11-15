@@ -22,21 +22,16 @@ echo [2/3] Commitando no git...
 where git >nul 2>&1 || (echo Git nao encontrado. & goto erro)
 if not exist ".git" git init -b main
 git add -A
-git commit -m "feat: API Gota Inteligente (GS SOA) com migrations, seed e colecao Insomnia" || echo (nada novo para commitar)
+git commit -m "docs: link do repositorio no README" || echo (nada novo para commitar)
 
 echo.
 echo [3/3] Publicando no GitHub...
-where gh >nul 2>&1 || (echo GitHub CLI ^(gh^) nao encontrado. & goto semgh)
-git remote get-url origin >nul 2>&1
-if errorlevel 1 (
-  gh repo create gota-inteligente-soa --public --source . --remote origin --push || goto erro
-) else (
-  git push -u origin main || goto erro
-)
-for /f "delims=" %%u in ('gh repo view --json url -q .url') do set REPO=%%u
-echo REPO=%REPO%> resultado.txt
+git remote get-url origin >nul 2>&1 || git remote add origin https://github.com/Pedro-Sabino/gota-inteligente-soa.git
+git branch -M main
+git push -u origin main || goto erro
+echo REPO=https://github.com/Pedro-Sabino/gota-inteligente-soa> resultado.txt
 echo.
-echo ===== PRONTO: %REPO% =====
+echo ===== PRONTO: https://github.com/Pedro-Sabino/gota-inteligente-soa =====
 pause
 exit /b 0
 

@@ -13,7 +13,7 @@
 | **Problema, em uma frase** | O pequeno produtor desperdiça água e energia regando "no olhômetro" ou perde a plantação numa seca repentina. |
 | **Como funciona** | Um ESP32 mede a umidade do solo e envia à API; um modelo de ML cruza essa leitura com a previsão do tempo e grava uma recomendação (irrigar, aguardar ou não irrigar); o app do agricultor exibe o alerta e o painel do Sindicato/Prefeitura acompanha o estresse hídrico da região. |
 | **O que cada parte faz** | **IoT (Wokwi/ESP32):** mede e envia umidade · **IA (Python):** decide se liga a bomba · **Mobile (React Native):** alerta o agricultor · **C# WinForms:** painel regional · **SOA (esta API):** centraliza dados e regras · **Cybersecurity / OS / Testing:** segurança, hospedagem no IIS e arquitetura TOGAF |
-| **Link do repositório** | https://github.com/<USUARIO>/gota-inteligente-soa |
+| **Link do repositório** | https://github.com/Pedro-Sabino/gota-inteligente-soa |
 | **Indicador de impacto** | Irrigações evitadas nos últimos 30 dias (`GET /api/painel/resumo`) |
 | **ODS conectados** | **ODS 2** (Fome zero e agricultura sustentável), **ODS 9** (Indústria, inovação e infraestrutura) e **ODS 13** (Ação contra a mudança global do clima) |
 
