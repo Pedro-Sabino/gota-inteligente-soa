@@ -21,8 +21,9 @@ echo.
 echo [2/3] Commitando no git...
 where git >nul 2>&1 || (echo Git nao encontrado. & goto erro)
 if not exist ".git" git init -b main
+git rm --cached -q --ignore-unmatch resultado.txt
 git add -A
-git commit -m "test: evidencias dos testes manuais da API" || echo (nada novo para commitar)
+git commit -m "chore: remove arquivo de controle do script" || echo (nada novo para commitar)
 
 echo.
 echo [3/3] Publicando no GitHub...
