@@ -1,1 +1,1 @@
-SEM_GH
+REPO=https://github.com/Pedro-Sabino/gota-inteligente-soa
