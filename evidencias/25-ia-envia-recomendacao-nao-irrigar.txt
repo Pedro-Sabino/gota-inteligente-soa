@@ -1,5 +1,5 @@
 TESTE 25 - [201] IA envia recomendação (não irrigar)
-Executado em: 15/11/2026 17:29:30  (20 ms)
+Executado em: 16/11/2026 19:45:04  (14 ms)
 
 >>> REQUISICAO
 POST http://localhost:5080/api/recomendacoes
@@ -26,7 +26,7 @@ Location: http://localhost:5080/api/talhoes/1/recomendacoes/ultima
     "probabilidadeChuvaPercentual":  90,
     "umidadeSoloPercentual":  28.5,
     "origem":  "modelo-ml",
-    "criadaEm":  "2026-11-15T20:29:30.9571701Z"
+    "criadaEm":  "2026-11-16T22:45:04.6564198Z"
 }
 
 RESULTADO: esperado 201, obtido 201 -> PASSOU

@@ -1,5 +1,5 @@
 TESTE 4 - [404] Obter fazenda inexistente
-Executado em: 15/11/2026 17:29:30  (45 ms)
+Executado em: 16/11/2026 19:45:04  (14 ms)
 
 >>> REQUISICAO
 GET http://localhost:5080/api/fazendas/999
@@ -13,7 +13,7 @@ HTTP 404 Not Found
     "type":  "https://tools.ietf.org/html/rfc9110#section-15.5.5",
     "title":  "Not Found",
     "status":  404,
-    "traceId":  "00-f80da41b4e3eb11090f1b0763c36a0e3-33e7d695ed7bc2c2-00"
+    "traceId":  "00-ab0c284146d78aaa07ea40d34b7de290-aded2c586b83b01d-00"
 }
 
 RESULTADO: esperado 404, obtido 404 -> PASSOU

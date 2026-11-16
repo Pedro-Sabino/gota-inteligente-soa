@@ -1,5 +1,5 @@
 TESTE 18 - [200] Histórico de leituras do sensor 1
-Executado em: 15/11/2026 17:29:30  (45 ms)
+Executado em: 16/11/2026 19:45:04  (35 ms)
 
 >>> REQUISICAO
 GET http://localhost:5080/api/sensores/1/leituras?limite=10
@@ -9,55 +9,52 @@ GET http://localhost:5080/api/sensores/1/leituras?limite=10
 HTTP 200 OK
 
 
-{
-    "value":  [
-                  {
-                      "id":  5,
-                      "sensorId":  1,
-                      "sensorCodigo":  "ESP32-001",
-                      "talhaoId":  1,
-                      "umidadePercentual":  31.5,
-                      "dataHora":  "2026-11-15T20:29:29.100617",
-                      "nivelEstresseHidrico":  "Moderado"
-                  },
-                  {
-                      "id":  4,
-                      "sensorId":  1,
-                      "sensorCodigo":  "ESP32-001",
-                      "talhaoId":  1,
-                      "umidadePercentual":  38,
-                      "dataHora":  "2026-11-15T19:29:29.100617",
-                      "nivelEstresseHidrico":  "Leve"
-                  },
-                  {
-                      "id":  3,
-                      "sensorId":  1,
-                      "sensorCodigo":  "ESP32-001",
-                      "talhaoId":  1,
-                      "umidadePercentual":  44,
-                      "dataHora":  "2026-11-15T18:29:29.100617",
-                      "nivelEstresseHidrico":  "Leve"
-                  },
-                  {
-                      "id":  2,
-                      "sensorId":  1,
-                      "sensorCodigo":  "ESP32-001",
-                      "talhaoId":  1,
-                      "umidadePercentual":  48.5,
-                      "dataHora":  "2026-11-15T17:29:29.100617",
-                      "nivelEstresseHidrico":  "Nenhum"
-                  },
-                  {
-                      "id":  1,
-                      "sensorId":  1,
-                      "sensorCodigo":  "ESP32-001",
-                      "talhaoId":  1,
-                      "umidadePercentual":  52,
-                      "dataHora":  "2026-11-15T16:29:29.100617",
-                      "nivelEstresseHidrico":  "Nenhum"
-                  }
-              ],
-    "Count":  5
-}
+[
+    {
+        "id":  5,
+        "sensorId":  1,
+        "sensorCodigo":  "ESP32-001",
+        "talhaoId":  1,
+        "umidadePercentual":  31.5,
+        "dataHora":  "2026-11-16T22:45:03.7034109",
+        "nivelEstresseHidrico":  "Moderado"
+    },
+    {
+        "id":  4,
+        "sensorId":  1,
+        "sensorCodigo":  "ESP32-001",
+        "talhaoId":  1,
+        "umidadePercentual":  38,
+        "dataHora":  "2026-11-16T21:45:03.7034109",
+        "nivelEstresseHidrico":  "Leve"
+    },
+    {
+        "id":  3,
+        "sensorId":  1,
+        "sensorCodigo":  "ESP32-001",
+        "talhaoId":  1,
+        "umidadePercentual":  44,
+        "dataHora":  "2026-11-16T20:45:03.7034109",
+        "nivelEstresseHidrico":  "Leve"
+    },
+    {
+        "id":  2,
+        "sensorId":  1,
+        "sensorCodigo":  "ESP32-001",
+        "talhaoId":  1,
+        "umidadePercentual":  48.5,
+        "dataHora":  "2026-11-16T19:45:03.7034109",
+        "nivelEstresseHidrico":  "Nenhum"
+    },
+    {
+        "id":  1,
+        "sensorId":  1,
+        "sensorCodigo":  "ESP32-001",
+        "talhaoId":  1,
+        "umidadePercentual":  52,
+        "dataHora":  "2026-11-16T18:45:03.7034109",
+        "nivelEstresseHidrico":  "Nenhum"
+    }
+]
 
 RESULTADO: esperado 200, obtido 200 -> PASSOU

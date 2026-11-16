@@ -1,5 +1,5 @@
 TESTE 24 - [404] Sensor não cadastrado
-Executado em: 15/11/2026 17:29:30  (4 ms)
+Executado em: 16/11/2026 19:45:04  (4 ms)
 
 >>> REQUISICAO
 POST http://localhost:5080/api/leituras

@@ -9,69 +9,63 @@ th{background:#e8f3ee} tr.ok .selo{background:#d6f5e3;color:#0b6b3a} tr.falha .s
 pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:auto;font-size:12px} tr.det td{border-bottom:2px solid #e3ebe6}
 </style></head><body>
 <h1>💧 Gota Inteligente — Relatório de testes da API</h1>
-<div class="sub">Coleção: insomnia/GotaInteligente.insomnia.json · Executado em 15/11/2026 17:29 · Base: http://localhost:5080</div>
+<div class="sub">Coleção: insomnia/GotaInteligente.insomnia.json · Executado em 16/11/2026 19:45 · Base: http://localhost:5080</div>
 <div class="placar">33 de 33 testes passaram</div>
 <table><tr><th>#</th><th>Método</th><th>Requisição</th><th>Esperado</th><th>Obtido</th><th>Tempo</th><th>Resultado</th></tr>
 <tr class="ok"><td>1</td><td><code>GET</code></td><td>[200] Listar fazendas<br><small>http://localhost:5080/api/fazendas</small></td>
-<td>200</td><td>200</td><td>60 ms</td><td><span class="selo">PASSOU</span></td></tr>
-<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
-    &quot;value&quot;:  [
-                  {
-                      &quot;id&quot;:  2,
-                      &quot;nome&quot;:  &quot;Ch&#225;cara &#193;gua Viva&quot;,
-                      &quot;proprietario&quot;:  &quot;Agricultor Exemplo 2&quot;,
-                      &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
-                      &quot;estado&quot;:  &quot;SP&quot;,
-                      &quot;areaHectares&quot;:  2,
-                      &quot;latitude&quot;:  -23.865,
-                      &quot;longitude&quot;:  -46.678,
-                      &quot;quantidadeTalhoes&quot;:  1
-                  },
-                  {
-                      &quot;id&quot;:  1,
-                      &quot;nome&quot;:  &quot;S&#237;tio Boa Esperan&#231;a&quot;,
-                      &quot;proprietario&quot;:  &quot;Agricultor Exemplo 1&quot;,
-                      &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
-                      &quot;estado&quot;:  &quot;SP&quot;,
-                      &quot;areaHectares&quot;:  4.5,
-                      &quot;latitude&quot;:  -23.827,
-                      &quot;longitude&quot;:  -46.729,
-                      &quot;quantidadeTalhoes&quot;:  2
-                  }
-              ],
-    &quot;Count&quot;:  2
-}</pre></details></td></tr>
+<td>200</td><td>200</td><td>43 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>[
+    {
+        &quot;id&quot;:  2,
+        &quot;nome&quot;:  &quot;Ch&#225;cara &#193;gua Viva&quot;,
+        &quot;proprietario&quot;:  &quot;Agricultor Exemplo 2&quot;,
+        &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
+        &quot;estado&quot;:  &quot;SP&quot;,
+        &quot;areaHectares&quot;:  2,
+        &quot;latitude&quot;:  -23.865,
+        &quot;longitude&quot;:  -46.678,
+        &quot;quantidadeTalhoes&quot;:  1
+    },
+    {
+        &quot;id&quot;:  1,
+        &quot;nome&quot;:  &quot;S&#237;tio Boa Esperan&#231;a&quot;,
+        &quot;proprietario&quot;:  &quot;Agricultor Exemplo 1&quot;,
+        &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
+        &quot;estado&quot;:  &quot;SP&quot;,
+        &quot;areaHectares&quot;:  4.5,
+        &quot;latitude&quot;:  -23.827,
+        &quot;longitude&quot;:  -46.729,
+        &quot;quantidadeTalhoes&quot;:  2
+    }
+]</pre></details></td></tr>
 <tr class="ok"><td>2</td><td><code>GET</code></td><td>[200] Listar por munic&#237;pio<br><small>http://localhost:5080/api/fazendas?municipio=S&#227;o Paulo</small></td>
-<td>200</td><td>200</td><td>25 ms</td><td><span class="selo">PASSOU</span></td></tr>
-<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
-    &quot;value&quot;:  [
-                  {
-                      &quot;id&quot;:  2,
-                      &quot;nome&quot;:  &quot;Ch&#225;cara &#193;gua Viva&quot;,
-                      &quot;proprietario&quot;:  &quot;Agricultor Exemplo 2&quot;,
-                      &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
-                      &quot;estado&quot;:  &quot;SP&quot;,
-                      &quot;areaHectares&quot;:  2,
-                      &quot;latitude&quot;:  -23.865,
-                      &quot;longitude&quot;:  -46.678,
-                      &quot;quantidadeTalhoes&quot;:  1
-                  },
-                  {
-                      &quot;id&quot;:  1,
-                      &quot;nome&quot;:  &quot;S&#237;tio Boa Esperan&#231;a&quot;,
-                      &quot;proprietario&quot;:  &quot;Agricultor Exemplo 1&quot;,
-                      &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
-                      &quot;estado&quot;:  &quot;SP&quot;,
-                      &quot;areaHectares&quot;:  4.5,
-                      &quot;latitude&quot;:  -23.827,
-                      &quot;longitude&quot;:  -46.729,
-                      &quot;quantidadeTalhoes&quot;:  2
-                  }
-              ],
-    &quot;Count&quot;:  2
-}</pre></details></td></tr>
+<td>200</td><td>200</td><td>11 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>[
+    {
+        &quot;id&quot;:  2,
+        &quot;nome&quot;:  &quot;Ch&#225;cara &#193;gua Viva&quot;,
+        &quot;proprietario&quot;:  &quot;Agricultor Exemplo 2&quot;,
+        &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
+        &quot;estado&quot;:  &quot;SP&quot;,
+        &quot;areaHectares&quot;:  2,
+        &quot;latitude&quot;:  -23.865,
+        &quot;longitude&quot;:  -46.678,
+        &quot;quantidadeTalhoes&quot;:  1
+    },
+    {
+        &quot;id&quot;:  1,
+        &quot;nome&quot;:  &quot;S&#237;tio Boa Esperan&#231;a&quot;,
+        &quot;proprietario&quot;:  &quot;Agricultor Exemplo 1&quot;,
+        &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
+        &quot;estado&quot;:  &quot;SP&quot;,
+        &quot;areaHectares&quot;:  4.5,
+        &quot;latitude&quot;:  -23.827,
+        &quot;longitude&quot;:  -46.729,
+        &quot;quantidadeTalhoes&quot;:  2
+    }
+]</pre></details></td></tr>
 <tr class="ok"><td>3</td><td><code>GET</code></td><td>[200] Obter fazenda 1<br><small>http://localhost:5080/api/fazendas/1</small></td>
-<td>200</td><td>200</td><td>15 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>200</td><td>200</td><td>10 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
     &quot;id&quot;:  1,
     &quot;nome&quot;:  &quot;S&#237;tio Boa Esperan&#231;a&quot;,
@@ -84,15 +78,15 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;quantidadeTalhoes&quot;:  2
 }</pre></details></td></tr>
 <tr class="ok"><td>4</td><td><code>GET</code></td><td>[404] Obter fazenda inexistente<br><small>http://localhost:5080/api/fazendas/999</small></td>
-<td>404</td><td>404</td><td>45 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>404</td><td>404</td><td>14 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
     &quot;type&quot;:  &quot;https://tools.ietf.org/html/rfc9110#section-15.5.5&quot;,
     &quot;title&quot;:  &quot;Not Found&quot;,
     &quot;status&quot;:  404,
-    &quot;traceId&quot;:  &quot;00-f80da41b4e3eb11090f1b0763c36a0e3-33e7d695ed7bc2c2-00&quot;
+    &quot;traceId&quot;:  &quot;00-ab0c284146d78aaa07ea40d34b7de290-aded2c586b83b01d-00&quot;
 }</pre></details></td></tr>
 <tr class="ok"><td>5</td><td><code>POST</code></td><td>[201] Criar fazenda<br><small>http://localhost:5080/api/fazendas</small></td>
-<td>201</td><td>201</td><td>50 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>201</td><td>201</td><td>34 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;nome&quot;: &quot;S&#237;tio Novo Horizonte&quot;,
   &quot;proprietario&quot;: &quot;Agricultor Exemplo 3&quot;,
@@ -130,10 +124,10 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
                                   &quot;The field Estado must be a string with a minimum length of 2 and a maximum length of 2.&quot;
                               ]
                },
-    &quot;traceId&quot;:  &quot;00-3ac72d3914b880a3930e268f2585411f-7ea8358d9718e9ed-00&quot;
+    &quot;traceId&quot;:  &quot;00-acee7512a7e1b44688303b3ea39c9ef7-a19c512497813bb4-00&quot;
 }</pre></details></td></tr>
 <tr class="ok"><td>7</td><td><code>PUT</code></td><td>[204] Atualizar fazenda 1<br><small>http://localhost:5080/api/fazendas/1</small></td>
-<td>204</td><td>204</td><td>22 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>204</td><td>204</td><td>18 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;nome&quot;: &quot;S&#237;tio Boa Esperan&#231;a&quot;,
   &quot;proprietario&quot;: &quot;Agricultor Exemplo 1&quot;,
@@ -142,74 +136,68 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
   &quot;areaHectares&quot;: 5.0
 }</pre><h4>Resposta</h4><pre>(sem corpo)</pre></details></td></tr>
 <tr class="ok"><td>8</td><td><code>DELETE</code></td><td>[204] Remover fazenda 3 (criada no teste de cria&#231;&#227;o)<br><small>http://localhost:5080/api/fazendas/3</small></td>
-<td>204</td><td>204</td><td>13 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>204</td><td>204</td><td>10 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>(sem corpo)</pre></details></td></tr>
 <tr class="ok"><td>9</td><td><code>GET</code></td><td>[200] Listar talh&#245;es<br><small>http://localhost:5080/api/talhoes</small></td>
-<td>200</td><td>200</td><td>35 ms</td><td><span class="selo">PASSOU</span></td></tr>
-<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
-    &quot;value&quot;:  [
-                  {
-                      &quot;id&quot;:  3,
-                      &quot;fazendaId&quot;:  2,
-                      &quot;nome&quot;:  &quot;Canteiro Principal&quot;,
-                      &quot;cultura&quot;:  &quot;Couve&quot;,
-                      &quot;areaHectares&quot;:  0.5,
-                      &quot;umidadeIdealMinima&quot;:  42,
-                      &quot;ultimaUmidade&quot;:  16,
-                      &quot;nivelEstresseHidrico&quot;:  &quot;Severo&quot;
-                  },
-                  {
-                      &quot;id&quot;:  1,
-                      &quot;fazendaId&quot;:  1,
-                      &quot;nome&quot;:  &quot;Horta Norte&quot;,
-                      &quot;cultura&quot;:  &quot;Alface&quot;,
-                      &quot;areaHectares&quot;:  0.8,
-                      &quot;umidadeIdealMinima&quot;:  45,
-                      &quot;ultimaUmidade&quot;:  31.5,
-                      &quot;nivelEstresseHidrico&quot;:  &quot;Moderado&quot;
-                  },
-                  {
-                      &quot;id&quot;:  2,
-                      &quot;fazendaId&quot;:  1,
-                      &quot;nome&quot;:  &quot;Horta Sul&quot;,
-                      &quot;cultura&quot;:  &quot;Tomate&quot;,
-                      &quot;areaHectares&quot;:  1.2,
-                      &quot;umidadeIdealMinima&quot;:  40,
-                      &quot;ultimaUmidade&quot;:  49,
-                      &quot;nivelEstresseHidrico&quot;:  &quot;Nenhum&quot;
-                  }
-              ],
-    &quot;Count&quot;:  3
-}</pre></details></td></tr>
+<td>200</td><td>200</td><td>21 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>[
+    {
+        &quot;id&quot;:  3,
+        &quot;fazendaId&quot;:  2,
+        &quot;nome&quot;:  &quot;Canteiro Principal&quot;,
+        &quot;cultura&quot;:  &quot;Couve&quot;,
+        &quot;areaHectares&quot;:  0.5,
+        &quot;umidadeIdealMinima&quot;:  42,
+        &quot;ultimaUmidade&quot;:  16,
+        &quot;nivelEstresseHidrico&quot;:  &quot;Severo&quot;
+    },
+    {
+        &quot;id&quot;:  1,
+        &quot;fazendaId&quot;:  1,
+        &quot;nome&quot;:  &quot;Horta Norte&quot;,
+        &quot;cultura&quot;:  &quot;Alface&quot;,
+        &quot;areaHectares&quot;:  0.8,
+        &quot;umidadeIdealMinima&quot;:  45,
+        &quot;ultimaUmidade&quot;:  31.5,
+        &quot;nivelEstresseHidrico&quot;:  &quot;Moderado&quot;
+    },
+    {
+        &quot;id&quot;:  2,
+        &quot;fazendaId&quot;:  1,
+        &quot;nome&quot;:  &quot;Horta Sul&quot;,
+        &quot;cultura&quot;:  &quot;Tomate&quot;,
+        &quot;areaHectares&quot;:  1.2,
+        &quot;umidadeIdealMinima&quot;:  40,
+        &quot;ultimaUmidade&quot;:  49,
+        &quot;nivelEstresseHidrico&quot;:  &quot;Nenhum&quot;
+    }
+]</pre></details></td></tr>
 <tr class="ok"><td>10</td><td><code>GET</code></td><td>[200] Listar talh&#245;es da fazenda 1<br><small>http://localhost:5080/api/talhoes?fazendaId=1</small></td>
-<td>200</td><td>200</td><td>7 ms</td><td><span class="selo">PASSOU</span></td></tr>
-<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
-    &quot;value&quot;:  [
-                  {
-                      &quot;id&quot;:  1,
-                      &quot;fazendaId&quot;:  1,
-                      &quot;nome&quot;:  &quot;Horta Norte&quot;,
-                      &quot;cultura&quot;:  &quot;Alface&quot;,
-                      &quot;areaHectares&quot;:  0.8,
-                      &quot;umidadeIdealMinima&quot;:  45,
-                      &quot;ultimaUmidade&quot;:  31.5,
-                      &quot;nivelEstresseHidrico&quot;:  &quot;Moderado&quot;
-                  },
-                  {
-                      &quot;id&quot;:  2,
-                      &quot;fazendaId&quot;:  1,
-                      &quot;nome&quot;:  &quot;Horta Sul&quot;,
-                      &quot;cultura&quot;:  &quot;Tomate&quot;,
-                      &quot;areaHectares&quot;:  1.2,
-                      &quot;umidadeIdealMinima&quot;:  40,
-                      &quot;ultimaUmidade&quot;:  49,
-                      &quot;nivelEstresseHidrico&quot;:  &quot;Nenhum&quot;
-                  }
-              ],
-    &quot;Count&quot;:  2
-}</pre></details></td></tr>
+<td>200</td><td>200</td><td>4 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>[
+    {
+        &quot;id&quot;:  1,
+        &quot;fazendaId&quot;:  1,
+        &quot;nome&quot;:  &quot;Horta Norte&quot;,
+        &quot;cultura&quot;:  &quot;Alface&quot;,
+        &quot;areaHectares&quot;:  0.8,
+        &quot;umidadeIdealMinima&quot;:  45,
+        &quot;ultimaUmidade&quot;:  31.5,
+        &quot;nivelEstresseHidrico&quot;:  &quot;Moderado&quot;
+    },
+    {
+        &quot;id&quot;:  2,
+        &quot;fazendaId&quot;:  1,
+        &quot;nome&quot;:  &quot;Horta Sul&quot;,
+        &quot;cultura&quot;:  &quot;Tomate&quot;,
+        &quot;areaHectares&quot;:  1.2,
+        &quot;umidadeIdealMinima&quot;:  40,
+        &quot;ultimaUmidade&quot;:  49,
+        &quot;nivelEstresseHidrico&quot;:  &quot;Nenhum&quot;
+    }
+]</pre></details></td></tr>
 <tr class="ok"><td>11</td><td><code>GET</code></td><td>[200] Obter talh&#227;o 1 (com n&#237;vel de estresse)<br><small>http://localhost:5080/api/talhoes/1</small></td>
-<td>200</td><td>200</td><td>10 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>200</td><td>200</td><td>8 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
     &quot;id&quot;:  1,
     &quot;fazendaId&quot;:  1,
@@ -221,7 +209,7 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;nivelEstresseHidrico&quot;:  &quot;Moderado&quot;
 }</pre></details></td></tr>
 <tr class="ok"><td>12</td><td><code>POST</code></td><td>[201] Criar talh&#227;o<br><small>http://localhost:5080/api/talhoes</small></td>
-<td>201</td><td>201</td><td>24 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>201</td><td>201</td><td>19 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;fazendaId&quot;: 1,
   &quot;nome&quot;: &quot;Horta Leste&quot;,
@@ -239,7 +227,7 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;nivelEstresseHidrico&quot;:  &quot;SemDados&quot;
 }</pre></details></td></tr>
 <tr class="ok"><td>13</td><td><code>POST</code></td><td>[404] Criar talh&#227;o em fazenda inexistente<br><small>http://localhost:5080/api/talhoes</small></td>
-<td>404</td><td>404</td><td>4 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>404</td><td>404</td><td>3 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;fazendaId&quot;: 999,
   &quot;nome&quot;: &quot;Teste&quot;,
@@ -251,7 +239,7 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;status&quot;:  404
 }</pre></details></td></tr>
 <tr class="ok"><td>14</td><td><code>POST</code></td><td>[400] Criar talh&#227;o com umidade ideal fora da faixa<br><small>http://localhost:5080/api/talhoes</small></td>
-<td>400</td><td>400</td><td>2 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>400</td><td>400</td><td>1 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;fazendaId&quot;: 1,
   &quot;nome&quot;: &quot;Teste&quot;,
@@ -267,7 +255,7 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
                                               &quot;The field UmidadeIdealMinima must be between 5 and 95.&quot;
                                           ]
                },
-    &quot;traceId&quot;:  &quot;00-9a78b4648da9a08759ab0501733b3daa-0a274cc1a04c5ac6-00&quot;
+    &quot;traceId&quot;:  &quot;00-42875a4bc59e50a6f26e9ccba524db8d-7086ce7f7ac385af-00&quot;
 }</pre></details></td></tr>
 <tr class="ok"><td>15</td><td><code>PUT</code></td><td>[204] Atualizar talh&#227;o 1<br><small>http://localhost:5080/api/talhoes/1</small></td>
 <td>204</td><td>204</td><td>9 ms</td><td><span class="selo">PASSOU</span></td></tr>
@@ -279,35 +267,32 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
   &quot;umidadeIdealMinima&quot;: 45
 }</pre><h4>Resposta</h4><pre>(sem corpo)</pre></details></td></tr>
 <tr class="ok"><td>16</td><td><code>GET</code></td><td>[200] Listar sensores<br><small>http://localhost:5080/api/sensores</small></td>
-<td>200</td><td>200</td><td>13 ms</td><td><span class="selo">PASSOU</span></td></tr>
-<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
-    &quot;value&quot;:  [
-                  {
-                      &quot;id&quot;:  1,
-                      &quot;talhaoId&quot;:  1,
-                      &quot;codigo&quot;:  &quot;ESP32-001&quot;,
-                      &quot;ativo&quot;:  true,
-                      &quot;totalLeituras&quot;:  5
-                  },
-                  {
-                      &quot;id&quot;:  2,
-                      &quot;talhaoId&quot;:  2,
-                      &quot;codigo&quot;:  &quot;ESP32-002&quot;,
-                      &quot;ativo&quot;:  true,
-                      &quot;totalLeituras&quot;:  5
-                  },
-                  {
-                      &quot;id&quot;:  3,
-                      &quot;talhaoId&quot;:  3,
-                      &quot;codigo&quot;:  &quot;ESP32-003&quot;,
-                      &quot;ativo&quot;:  true,
-                      &quot;totalLeituras&quot;:  5
-                  }
-              ],
-    &quot;Count&quot;:  3
-}</pre></details></td></tr>
-<tr class="ok"><td>17</td><td><code>GET</code></td><td>[200] Obter sensor 1<br><small>http://localhost:5080/api/sensores/1</small></td>
 <td>200</td><td>200</td><td>11 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>[
+    {
+        &quot;id&quot;:  1,
+        &quot;talhaoId&quot;:  1,
+        &quot;codigo&quot;:  &quot;ESP32-001&quot;,
+        &quot;ativo&quot;:  true,
+        &quot;totalLeituras&quot;:  5
+    },
+    {
+        &quot;id&quot;:  2,
+        &quot;talhaoId&quot;:  2,
+        &quot;codigo&quot;:  &quot;ESP32-002&quot;,
+        &quot;ativo&quot;:  true,
+        &quot;totalLeituras&quot;:  5
+    },
+    {
+        &quot;id&quot;:  3,
+        &quot;talhaoId&quot;:  3,
+        &quot;codigo&quot;:  &quot;ESP32-003&quot;,
+        &quot;ativo&quot;:  true,
+        &quot;totalLeituras&quot;:  5
+    }
+]</pre></details></td></tr>
+<tr class="ok"><td>17</td><td><code>GET</code></td><td>[200] Obter sensor 1<br><small>http://localhost:5080/api/sensores/1</small></td>
+<td>200</td><td>200</td><td>10 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
     &quot;id&quot;:  1,
     &quot;talhaoId&quot;:  1,
@@ -316,59 +301,56 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;totalLeituras&quot;:  5
 }</pre></details></td></tr>
 <tr class="ok"><td>18</td><td><code>GET</code></td><td>[200] Hist&#243;rico de leituras do sensor 1<br><small>http://localhost:5080/api/sensores/1/leituras?limite=10</small></td>
-<td>200</td><td>200</td><td>45 ms</td><td><span class="selo">PASSOU</span></td></tr>
-<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
-    &quot;value&quot;:  [
-                  {
-                      &quot;id&quot;:  5,
-                      &quot;sensorId&quot;:  1,
-                      &quot;sensorCodigo&quot;:  &quot;ESP32-001&quot;,
-                      &quot;talhaoId&quot;:  1,
-                      &quot;umidadePercentual&quot;:  31.5,
-                      &quot;dataHora&quot;:  &quot;2026-11-15T20:29:29.100617&quot;,
-                      &quot;nivelEstresseHidrico&quot;:  &quot;Moderado&quot;
-                  },
-                  {
-                      &quot;id&quot;:  4,
-                      &quot;sensorId&quot;:  1,
-                      &quot;sensorCodigo&quot;:  &quot;ESP32-001&quot;,
-                      &quot;talhaoId&quot;:  1,
-                      &quot;umidadePercentual&quot;:  38,
-                      &quot;dataHora&quot;:  &quot;2026-11-15T19:29:29.100617&quot;,
-                      &quot;nivelEstresseHidrico&quot;:  &quot;Leve&quot;
-                  },
-                  {
-                      &quot;id&quot;:  3,
-                      &quot;sensorId&quot;:  1,
-                      &quot;sensorCodigo&quot;:  &quot;ESP32-001&quot;,
-                      &quot;talhaoId&quot;:  1,
-                      &quot;umidadePercentual&quot;:  44,
-                      &quot;dataHora&quot;:  &quot;2026-11-15T18:29:29.100617&quot;,
-                      &quot;nivelEstresseHidrico&quot;:  &quot;Leve&quot;
-                  },
-                  {
-                      &quot;id&quot;:  2,
-                      &quot;sensorId&quot;:  1,
-                      &quot;sensorCodigo&quot;:  &quot;ESP32-001&quot;,
-                      &quot;talhaoId&quot;:  1,
-                      &quot;umidadePercentual&quot;:  48.5,
-                      &quot;dataHora&quot;:  &quot;2026-11-15T17:29:29.100617&quot;,
-                      &quot;nivelEstresseHidrico&quot;:  &quot;Nenhum&quot;
-                  },
-                  {
-                      &quot;id&quot;:  1,
-                      &quot;sensorId&quot;:  1,
-                      &quot;sensorCodigo&quot;:  &quot;ESP32-001&quot;,
-                      &quot;talhaoId&quot;:  1,
-                      &quot;umidadePercentual&quot;:  52,
-                      &quot;dataHora&quot;:  &quot;2026-11-15T16:29:29.100617&quot;,
-                      &quot;nivelEstresseHidrico&quot;:  &quot;Nenhum&quot;
-                  }
-              ],
-    &quot;Count&quot;:  5
-}</pre></details></td></tr>
+<td>200</td><td>200</td><td>35 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>[
+    {
+        &quot;id&quot;:  5,
+        &quot;sensorId&quot;:  1,
+        &quot;sensorCodigo&quot;:  &quot;ESP32-001&quot;,
+        &quot;talhaoId&quot;:  1,
+        &quot;umidadePercentual&quot;:  31.5,
+        &quot;dataHora&quot;:  &quot;2026-11-16T22:45:03.7034109&quot;,
+        &quot;nivelEstresseHidrico&quot;:  &quot;Moderado&quot;
+    },
+    {
+        &quot;id&quot;:  4,
+        &quot;sensorId&quot;:  1,
+        &quot;sensorCodigo&quot;:  &quot;ESP32-001&quot;,
+        &quot;talhaoId&quot;:  1,
+        &quot;umidadePercentual&quot;:  38,
+        &quot;dataHora&quot;:  &quot;2026-11-16T21:45:03.7034109&quot;,
+        &quot;nivelEstresseHidrico&quot;:  &quot;Leve&quot;
+    },
+    {
+        &quot;id&quot;:  3,
+        &quot;sensorId&quot;:  1,
+        &quot;sensorCodigo&quot;:  &quot;ESP32-001&quot;,
+        &quot;talhaoId&quot;:  1,
+        &quot;umidadePercentual&quot;:  44,
+        &quot;dataHora&quot;:  &quot;2026-11-16T20:45:03.7034109&quot;,
+        &quot;nivelEstresseHidrico&quot;:  &quot;Leve&quot;
+    },
+    {
+        &quot;id&quot;:  2,
+        &quot;sensorId&quot;:  1,
+        &quot;sensorCodigo&quot;:  &quot;ESP32-001&quot;,
+        &quot;talhaoId&quot;:  1,
+        &quot;umidadePercentual&quot;:  48.5,
+        &quot;dataHora&quot;:  &quot;2026-11-16T19:45:03.7034109&quot;,
+        &quot;nivelEstresseHidrico&quot;:  &quot;Nenhum&quot;
+    },
+    {
+        &quot;id&quot;:  1,
+        &quot;sensorId&quot;:  1,
+        &quot;sensorCodigo&quot;:  &quot;ESP32-001&quot;,
+        &quot;talhaoId&quot;:  1,
+        &quot;umidadePercentual&quot;:  52,
+        &quot;dataHora&quot;:  &quot;2026-11-16T18:45:03.7034109&quot;,
+        &quot;nivelEstresseHidrico&quot;:  &quot;Nenhum&quot;
+    }
+]</pre></details></td></tr>
 <tr class="ok"><td>19</td><td><code>POST</code></td><td>[201] Cadastrar sensor<br><small>http://localhost:5080/api/sensores</small></td>
-<td>201</td><td>201</td><td>20 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>201</td><td>201</td><td>13 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;talhaoId&quot;: 1,
   &quot;codigo&quot;: &quot;ESP32-010&quot;,
@@ -381,7 +363,7 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;totalLeituras&quot;:  0
 }</pre></details></td></tr>
 <tr class="ok"><td>20</td><td><code>POST</code></td><td>[409] Cadastrar sensor com c&#243;digo duplicado<br><small>http://localhost:5080/api/sensores</small></td>
-<td>409</td><td>409</td><td>6 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>409</td><td>409</td><td>3 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;talhaoId&quot;: 1,
   &quot;codigo&quot;: &quot;ESP32-001&quot;,
@@ -391,7 +373,7 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;status&quot;:  409
 }</pre></details></td></tr>
 <tr class="ok"><td>21</td><td><code>POST</code></td><td>[404] Cadastrar sensor em talh&#227;o inexistente<br><small>http://localhost:5080/api/sensores</small></td>
-<td>404</td><td>404</td><td>3 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>404</td><td>404</td><td>4 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;talhaoId&quot;: 999,
   &quot;codigo&quot;: &quot;ESP32-099&quot;,
@@ -401,7 +383,7 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;status&quot;:  404
 }</pre></details></td></tr>
 <tr class="ok"><td>22</td><td><code>POST</code></td><td>[201] Enviar leitura de umidade<br><small>http://localhost:5080/api/leituras</small></td>
-<td>201</td><td>201</td><td>25 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>201</td><td>201</td><td>14 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;sensorCodigo&quot;: &quot;ESP32-001&quot;,
   &quot;umidadePercentual&quot;: 28.5
@@ -411,11 +393,11 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;sensorCodigo&quot;:  &quot;ESP32-001&quot;,
     &quot;talhaoId&quot;:  1,
     &quot;umidadePercentual&quot;:  28.5,
-    &quot;dataHora&quot;:  &quot;2026-11-15T20:29:30.9237635Z&quot;,
+    &quot;dataHora&quot;:  &quot;2026-11-16T22:45:04.6284028Z&quot;,
     &quot;nivelEstresseHidrico&quot;:  &quot;Moderado&quot;
 }</pre></details></td></tr>
 <tr class="ok"><td>23</td><td><code>POST</code></td><td>[400] Umidade fora de 0-100<br><small>http://localhost:5080/api/leituras</small></td>
-<td>400</td><td>400</td><td>3 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>400</td><td>400</td><td>1 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;sensorCodigo&quot;: &quot;ESP32-001&quot;,
   &quot;umidadePercentual&quot;: 130
@@ -428,7 +410,7 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
                                              &quot;The field UmidadePercentual must be between 0 and 100.&quot;
                                          ]
                },
-    &quot;traceId&quot;:  &quot;00-ea4b2cdb2c60a332e05e82d17f537a29-bb4f63b7e2796cc9-00&quot;
+    &quot;traceId&quot;:  &quot;00-a004356d058f2a902191a14d2c4ef9b6-d863087d567a28f4-00&quot;
 }</pre></details></td></tr>
 <tr class="ok"><td>24</td><td><code>POST</code></td><td>[404] Sensor n&#227;o cadastrado<br><small>http://localhost:5080/api/leituras</small></td>
 <td>404</td><td>404</td><td>4 ms</td><td><span class="selo">PASSOU</span></td></tr>
@@ -440,7 +422,7 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;status&quot;:  404
 }</pre></details></td></tr>
 <tr class="ok"><td>25</td><td><code>POST</code></td><td>[201] IA envia recomenda&#231;&#227;o (n&#227;o irrigar)<br><small>http://localhost:5080/api/recomendacoes</small></td>
-<td>201</td><td>201</td><td>20 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>201</td><td>201</td><td>14 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;talhaoId&quot;: 1,
   &quot;acao&quot;: &quot;NaoIrrigar&quot;,
@@ -456,10 +438,10 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;probabilidadeChuvaPercentual&quot;:  90,
     &quot;umidadeSoloPercentual&quot;:  28.5,
     &quot;origem&quot;:  &quot;modelo-ml&quot;,
-    &quot;criadaEm&quot;:  &quot;2026-11-15T20:29:30.9571701Z&quot;
+    &quot;criadaEm&quot;:  &quot;2026-11-16T22:45:04.6564198Z&quot;
 }</pre></details></td></tr>
 <tr class="ok"><td>26</td><td><code>POST</code></td><td>[404] Recomenda&#231;&#227;o para talh&#227;o inexistente<br><small>http://localhost:5080/api/recomendacoes</small></td>
-<td>404</td><td>404</td><td>4 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>404</td><td>404</td><td>3 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;talhaoId&quot;: 999,
   &quot;acao&quot;: &quot;Irrigar&quot;,
@@ -471,7 +453,7 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;status&quot;:  404
 }</pre></details></td></tr>
 <tr class="ok"><td>27</td><td><code>POST</code></td><td>[400] A&#231;&#227;o inv&#225;lida<br><small>http://localhost:5080/api/recomendacoes</small></td>
-<td>400</td><td>400</td><td>5 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>400</td><td>400</td><td>2 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Corpo enviado</h4><pre>{
   &quot;talhaoId&quot;: 1,
   &quot;acao&quot;: &quot;Explodir&quot;,
@@ -490,37 +472,34 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
                                   &quot;The JSON value could not be converted to GotaInteligente.Api.Domain.AcaoIrrigacao. Path: $.acao | LineNumber: 2 | BytePositionInLine: 20.&quot;
                               ]
                },
-    &quot;traceId&quot;:  &quot;00-df15b3e8ada964f0a47d92ecce99fc97-60d555726cb5fa3a-00&quot;
+    &quot;traceId&quot;:  &quot;00-ad82c3a2329367a15a021cdb8ed088cd-91fb321b966eb08c-00&quot;
 }</pre></details></td></tr>
 <tr class="ok"><td>28</td><td><code>GET</code></td><td>[200] Hist&#243;rico do talh&#227;o 1<br><small>http://localhost:5080/api/talhoes/1/recomendacoes</small></td>
-<td>200</td><td>200</td><td>13 ms</td><td><span class="selo">PASSOU</span></td></tr>
-<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
-    &quot;value&quot;:  [
-                  {
-                      &quot;id&quot;:  2,
-                      &quot;talhaoId&quot;:  1,
-                      &quot;acao&quot;:  &quot;NaoIrrigar&quot;,
-                      &quot;motivo&quot;:  &quot;Bomba desligada: 90% de chance de chuva nas pr&#243;ximas 2 horas.&quot;,
-                      &quot;probabilidadeChuvaPercentual&quot;:  90,
-                      &quot;umidadeSoloPercentual&quot;:  28.5,
-                      &quot;origem&quot;:  &quot;modelo-ml&quot;,
-                      &quot;criadaEm&quot;:  &quot;2026-11-15T20:29:30.9571701&quot;
-                  },
-                  {
-                      &quot;id&quot;:  1,
-                      &quot;talhaoId&quot;:  1,
-                      &quot;acao&quot;:  &quot;NaoIrrigar&quot;,
-                      &quot;motivo&quot;:  &quot;Bomba desligada: 90% de chance de chuva nas pr&#243;ximas 2 horas.&quot;,
-                      &quot;probabilidadeChuvaPercentual&quot;:  90,
-                      &quot;umidadeSoloPercentual&quot;:  31.5,
-                      &quot;origem&quot;:  &quot;seed-simulado&quot;,
-                      &quot;criadaEm&quot;:  &quot;2026-11-15T20:29:29.100617&quot;
-                  }
-              ],
-    &quot;Count&quot;:  2
-}</pre></details></td></tr>
-<tr class="ok"><td>29</td><td><code>GET</code></td><td>[200] &#218;ltimo alerta do talh&#227;o 1 (app mobile)<br><small>http://localhost:5080/api/talhoes/1/recomendacoes/ultima</small></td>
 <td>200</td><td>200</td><td>9 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>[
+    {
+        &quot;id&quot;:  2,
+        &quot;talhaoId&quot;:  1,
+        &quot;acao&quot;:  &quot;NaoIrrigar&quot;,
+        &quot;motivo&quot;:  &quot;Bomba desligada: 90% de chance de chuva nas pr&#243;ximas 2 horas.&quot;,
+        &quot;probabilidadeChuvaPercentual&quot;:  90,
+        &quot;umidadeSoloPercentual&quot;:  28.5,
+        &quot;origem&quot;:  &quot;modelo-ml&quot;,
+        &quot;criadaEm&quot;:  &quot;2026-11-16T22:45:04.6564198&quot;
+    },
+    {
+        &quot;id&quot;:  1,
+        &quot;talhaoId&quot;:  1,
+        &quot;acao&quot;:  &quot;NaoIrrigar&quot;,
+        &quot;motivo&quot;:  &quot;Bomba desligada: 90% de chance de chuva nas pr&#243;ximas 2 horas.&quot;,
+        &quot;probabilidadeChuvaPercentual&quot;:  90,
+        &quot;umidadeSoloPercentual&quot;:  31.5,
+        &quot;origem&quot;:  &quot;seed-simulado&quot;,
+        &quot;criadaEm&quot;:  &quot;2026-11-16T22:45:03.7034109&quot;
+    }
+]</pre></details></td></tr>
+<tr class="ok"><td>29</td><td><code>GET</code></td><td>[200] &#218;ltimo alerta do talh&#227;o 1 (app mobile)<br><small>http://localhost:5080/api/talhoes/1/recomendacoes/ultima</small></td>
+<td>200</td><td>200</td><td>7 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
     &quot;id&quot;:  2,
     &quot;talhaoId&quot;:  1,
@@ -529,7 +508,7 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;probabilidadeChuvaPercentual&quot;:  90,
     &quot;umidadeSoloPercentual&quot;:  28.5,
     &quot;origem&quot;:  &quot;modelo-ml&quot;,
-    &quot;criadaEm&quot;:  &quot;2026-11-15T20:29:30.9571701&quot;
+    &quot;criadaEm&quot;:  &quot;2026-11-16T22:45:04.6564198&quot;
 }</pre></details></td></tr>
 <tr class="ok"><td>30</td><td><code>GET</code></td><td>[404] &#218;ltimo alerta de talh&#227;o sem recomenda&#231;&#245;es<br><small>http://localhost:5080/api/talhoes/999/recomendacoes/ultima</small></td>
 <td>404</td><td>404</td><td>2 ms</td><td><span class="selo">PASSOU</span></td></tr>
@@ -537,120 +516,114 @@ pre{background:#10231b;color:#d8f3e6;padding:10px;border-radius:6px;overflow:aut
     &quot;type&quot;:  &quot;https://tools.ietf.org/html/rfc9110#section-15.5.5&quot;,
     &quot;title&quot;:  &quot;Not Found&quot;,
     &quot;status&quot;:  404,
-    &quot;traceId&quot;:  &quot;00-4e6560ef355bf4fc1c5475b801085d71-349ea4a6cdf38152-00&quot;
+    &quot;traceId&quot;:  &quot;00-9eb8cfdb5fcadd34da0a598400d99c43-46f016b2d07f5c3c-00&quot;
 }</pre></details></td></tr>
 <tr class="ok"><td>31</td><td><code>GET</code></td><td>[200] Estresse h&#237;drico por fazenda<br><small>http://localhost:5080/api/painel/estresse-hidrico</small></td>
-<td>200</td><td>200</td><td>29 ms</td><td><span class="selo">PASSOU</span></td></tr>
-<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
-    &quot;value&quot;:  [
-                  {
-                      &quot;fazendaId&quot;:  2,
-                      &quot;fazendaNome&quot;:  &quot;Ch&#225;cara &#193;gua Viva&quot;,
-                      &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
-                      &quot;totalTalhoes&quot;:  1,
-                      &quot;talhoesEmEstresse&quot;:  1,
-                      &quot;piorNivel&quot;:  &quot;Severo&quot;,
-                      &quot;talhoes&quot;:  [
-                                      {
-                                          &quot;talhaoId&quot;:  3,
-                                          &quot;nome&quot;:  &quot;Canteiro Principal&quot;,
-                                          &quot;cultura&quot;:  &quot;Couve&quot;,
-                                          &quot;ultimaUmidade&quot;:  16,
-                                          &quot;nivel&quot;:  &quot;Severo&quot;
-                                      }
-                                  ]
-                  },
-                  {
-                      &quot;fazendaId&quot;:  1,
-                      &quot;fazendaNome&quot;:  &quot;S&#237;tio Boa Esperan&#231;a&quot;,
-                      &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
-                      &quot;totalTalhoes&quot;:  3,
-                      &quot;talhoesEmEstresse&quot;:  1,
-                      &quot;piorNivel&quot;:  &quot;Moderado&quot;,
-                      &quot;talhoes&quot;:  [
-                                      {
-                                          &quot;talhaoId&quot;:  1,
-                                          &quot;nome&quot;:  &quot;Horta Norte&quot;,
-                                          &quot;cultura&quot;:  &quot;Alface&quot;,
-                                          &quot;ultimaUmidade&quot;:  28.5,
-                                          &quot;nivel&quot;:  &quot;Moderado&quot;
-                                      },
-                                      {
-                                          &quot;talhaoId&quot;:  2,
-                                          &quot;nome&quot;:  &quot;Horta Sul&quot;,
-                                          &quot;cultura&quot;:  &quot;Tomate&quot;,
-                                          &quot;ultimaUmidade&quot;:  49,
-                                          &quot;nivel&quot;:  &quot;Nenhum&quot;
-                                      },
-                                      {
-                                          &quot;talhaoId&quot;:  4,
-                                          &quot;nome&quot;:  &quot;Horta Leste&quot;,
-                                          &quot;cultura&quot;:  &quot;Cenoura&quot;,
-                                          &quot;ultimaUmidade&quot;:  null,
-                                          &quot;nivel&quot;:  &quot;SemDados&quot;
-                                      }
-                                  ]
-                  }
-              ],
-    &quot;Count&quot;:  2
-}</pre></details></td></tr>
+<td>200</td><td>200</td><td>19 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>[
+    {
+        &quot;fazendaId&quot;:  2,
+        &quot;fazendaNome&quot;:  &quot;Ch&#225;cara &#193;gua Viva&quot;,
+        &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
+        &quot;totalTalhoes&quot;:  1,
+        &quot;talhoesEmEstresse&quot;:  1,
+        &quot;piorNivel&quot;:  &quot;Severo&quot;,
+        &quot;talhoes&quot;:  [
+                        {
+                            &quot;talhaoId&quot;:  3,
+                            &quot;nome&quot;:  &quot;Canteiro Principal&quot;,
+                            &quot;cultura&quot;:  &quot;Couve&quot;,
+                            &quot;ultimaUmidade&quot;:  16,
+                            &quot;nivel&quot;:  &quot;Severo&quot;
+                        }
+                    ]
+    },
+    {
+        &quot;fazendaId&quot;:  1,
+        &quot;fazendaNome&quot;:  &quot;S&#237;tio Boa Esperan&#231;a&quot;,
+        &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
+        &quot;totalTalhoes&quot;:  3,
+        &quot;talhoesEmEstresse&quot;:  1,
+        &quot;piorNivel&quot;:  &quot;Moderado&quot;,
+        &quot;talhoes&quot;:  [
+                        {
+                            &quot;talhaoId&quot;:  1,
+                            &quot;nome&quot;:  &quot;Horta Norte&quot;,
+                            &quot;cultura&quot;:  &quot;Alface&quot;,
+                            &quot;ultimaUmidade&quot;:  28.5,
+                            &quot;nivel&quot;:  &quot;Moderado&quot;
+                        },
+                        {
+                            &quot;talhaoId&quot;:  2,
+                            &quot;nome&quot;:  &quot;Horta Sul&quot;,
+                            &quot;cultura&quot;:  &quot;Tomate&quot;,
+                            &quot;ultimaUmidade&quot;:  49,
+                            &quot;nivel&quot;:  &quot;Nenhum&quot;
+                        },
+                        {
+                            &quot;talhaoId&quot;:  4,
+                            &quot;nome&quot;:  &quot;Horta Leste&quot;,
+                            &quot;cultura&quot;:  &quot;Cenoura&quot;,
+                            &quot;ultimaUmidade&quot;:  null,
+                            &quot;nivel&quot;:  &quot;SemDados&quot;
+                        }
+                    ]
+    }
+]</pre></details></td></tr>
 <tr class="ok"><td>32</td><td><code>GET</code></td><td>[200] Estresse h&#237;drico filtrado por munic&#237;pio<br><small>http://localhost:5080/api/painel/estresse-hidrico?municipio=S&#227;o Paulo</small></td>
-<td>200</td><td>200</td><td>8 ms</td><td><span class="selo">PASSOU</span></td></tr>
-<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
-    &quot;value&quot;:  [
-                  {
-                      &quot;fazendaId&quot;:  2,
-                      &quot;fazendaNome&quot;:  &quot;Ch&#225;cara &#193;gua Viva&quot;,
-                      &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
-                      &quot;totalTalhoes&quot;:  1,
-                      &quot;talhoesEmEstresse&quot;:  1,
-                      &quot;piorNivel&quot;:  &quot;Severo&quot;,
-                      &quot;talhoes&quot;:  [
-                                      {
-                                          &quot;talhaoId&quot;:  3,
-                                          &quot;nome&quot;:  &quot;Canteiro Principal&quot;,
-                                          &quot;cultura&quot;:  &quot;Couve&quot;,
-                                          &quot;ultimaUmidade&quot;:  16,
-                                          &quot;nivel&quot;:  &quot;Severo&quot;
-                                      }
-                                  ]
-                  },
-                  {
-                      &quot;fazendaId&quot;:  1,
-                      &quot;fazendaNome&quot;:  &quot;S&#237;tio Boa Esperan&#231;a&quot;,
-                      &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
-                      &quot;totalTalhoes&quot;:  3,
-                      &quot;talhoesEmEstresse&quot;:  1,
-                      &quot;piorNivel&quot;:  &quot;Moderado&quot;,
-                      &quot;talhoes&quot;:  [
-                                      {
-                                          &quot;talhaoId&quot;:  1,
-                                          &quot;nome&quot;:  &quot;Horta Norte&quot;,
-                                          &quot;cultura&quot;:  &quot;Alface&quot;,
-                                          &quot;ultimaUmidade&quot;:  28.5,
-                                          &quot;nivel&quot;:  &quot;Moderado&quot;
-                                      },
-                                      {
-                                          &quot;talhaoId&quot;:  2,
-                                          &quot;nome&quot;:  &quot;Horta Sul&quot;,
-                                          &quot;cultura&quot;:  &quot;Tomate&quot;,
-                                          &quot;ultimaUmidade&quot;:  49,
-                                          &quot;nivel&quot;:  &quot;Nenhum&quot;
-                                      },
-                                      {
-                                          &quot;talhaoId&quot;:  4,
-                                          &quot;nome&quot;:  &quot;Horta Leste&quot;,
-                                          &quot;cultura&quot;:  &quot;Cenoura&quot;,
-                                          &quot;ultimaUmidade&quot;:  null,
-                                          &quot;nivel&quot;:  &quot;SemDados&quot;
-                                      }
-                                  ]
-                  }
-              ],
-    &quot;Count&quot;:  2
-}</pre></details></td></tr>
+<td>200</td><td>200</td><td>5 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>[
+    {
+        &quot;fazendaId&quot;:  2,
+        &quot;fazendaNome&quot;:  &quot;Ch&#225;cara &#193;gua Viva&quot;,
+        &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
+        &quot;totalTalhoes&quot;:  1,
+        &quot;talhoesEmEstresse&quot;:  1,
+        &quot;piorNivel&quot;:  &quot;Severo&quot;,
+        &quot;talhoes&quot;:  [
+                        {
+                            &quot;talhaoId&quot;:  3,
+                            &quot;nome&quot;:  &quot;Canteiro Principal&quot;,
+                            &quot;cultura&quot;:  &quot;Couve&quot;,
+                            &quot;ultimaUmidade&quot;:  16,
+                            &quot;nivel&quot;:  &quot;Severo&quot;
+                        }
+                    ]
+    },
+    {
+        &quot;fazendaId&quot;:  1,
+        &quot;fazendaNome&quot;:  &quot;S&#237;tio Boa Esperan&#231;a&quot;,
+        &quot;municipio&quot;:  &quot;S&#227;o Paulo&quot;,
+        &quot;totalTalhoes&quot;:  3,
+        &quot;talhoesEmEstresse&quot;:  1,
+        &quot;piorNivel&quot;:  &quot;Moderado&quot;,
+        &quot;talhoes&quot;:  [
+                        {
+                            &quot;talhaoId&quot;:  1,
+                            &quot;nome&quot;:  &quot;Horta Norte&quot;,
+                            &quot;cultura&quot;:  &quot;Alface&quot;,
+                            &quot;ultimaUmidade&quot;:  28.5,
+                            &quot;nivel&quot;:  &quot;Moderado&quot;
+                        },
+                        {
+                            &quot;talhaoId&quot;:  2,
+                            &quot;nome&quot;:  &quot;Horta Sul&quot;,
+                            &quot;cultura&quot;:  &quot;Tomate&quot;,
+                            &quot;ultimaUmidade&quot;:  49,
+                            &quot;nivel&quot;:  &quot;Nenhum&quot;
+                        },
+                        {
+                            &quot;talhaoId&quot;:  4,
+                            &quot;nome&quot;:  &quot;Horta Leste&quot;,
+                            &quot;cultura&quot;:  &quot;Cenoura&quot;,
+                            &quot;ultimaUmidade&quot;:  null,
+                            &quot;nivel&quot;:  &quot;SemDados&quot;
+                        }
+                    ]
+    }
+]</pre></details></td></tr>
 <tr class="ok"><td>33</td><td><code>GET</code></td><td>[200] Resumo e indicador de impacto<br><small>http://localhost:5080/api/painel/resumo</small></td>
-<td>200</td><td>200</td><td>26 ms</td><td><span class="selo">PASSOU</span></td></tr>
+<td>200</td><td>200</td><td>19 ms</td><td><span class="selo">PASSOU</span></td></tr>
 <tr class="det"><td colspan="7"><details><summary>Ver requisição e resposta</summary><h4>Resposta</h4><pre>{
     &quot;totalFazendas&quot;:  2,
     &quot;totalTalhoes&quot;:  4,

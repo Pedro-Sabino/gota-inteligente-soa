@@ -1,5 +1,5 @@
 TESTE 32 - [200] Estresse hídrico filtrado por município
-Executado em: 15/11/2026 17:29:31  (8 ms)
+Executado em: 16/11/2026 19:45:04  (5 ms)
 
 >>> REQUISICAO
 GET http://localhost:5080/api/painel/estresse-hidrico?municipio=São Paulo
@@ -9,58 +9,55 @@ GET http://localhost:5080/api/painel/estresse-hidrico?municipio=São Paulo
 HTTP 200 OK
 
 
-{
-    "value":  [
-                  {
-                      "fazendaId":  2,
-                      "fazendaNome":  "Chácara Água Viva",
-                      "municipio":  "São Paulo",
-                      "totalTalhoes":  1,
-                      "talhoesEmEstresse":  1,
-                      "piorNivel":  "Severo",
-                      "talhoes":  [
-                                      {
-                                          "talhaoId":  3,
-                                          "nome":  "Canteiro Principal",
-                                          "cultura":  "Couve",
-                                          "ultimaUmidade":  16,
-                                          "nivel":  "Severo"
-                                      }
-                                  ]
-                  },
-                  {
-                      "fazendaId":  1,
-                      "fazendaNome":  "Sítio Boa Esperança",
-                      "municipio":  "São Paulo",
-                      "totalTalhoes":  3,
-                      "talhoesEmEstresse":  1,
-                      "piorNivel":  "Moderado",
-                      "talhoes":  [
-                                      {
-                                          "talhaoId":  1,
-                                          "nome":  "Horta Norte",
-                                          "cultura":  "Alface",
-                                          "ultimaUmidade":  28.5,
-                                          "nivel":  "Moderado"
-                                      },
-                                      {
-                                          "talhaoId":  2,
-                                          "nome":  "Horta Sul",
-                                          "cultura":  "Tomate",
-                                          "ultimaUmidade":  49,
-                                          "nivel":  "Nenhum"
-                                      },
-                                      {
-                                          "talhaoId":  4,
-                                          "nome":  "Horta Leste",
-                                          "cultura":  "Cenoura",
-                                          "ultimaUmidade":  null,
-                                          "nivel":  "SemDados"
-                                      }
-                                  ]
-                  }
-              ],
-    "Count":  2
-}
+[
+    {
+        "fazendaId":  2,
+        "fazendaNome":  "Chácara Água Viva",
+        "municipio":  "São Paulo",
+        "totalTalhoes":  1,
+        "talhoesEmEstresse":  1,
+        "piorNivel":  "Severo",
+        "talhoes":  [
+                        {
+                            "talhaoId":  3,
+                            "nome":  "Canteiro Principal",
+                            "cultura":  "Couve",
+                            "ultimaUmidade":  16,
+                            "nivel":  "Severo"
+                        }
+                    ]
+    },
+    {
+        "fazendaId":  1,
+        "fazendaNome":  "Sítio Boa Esperança",
+        "municipio":  "São Paulo",
+        "totalTalhoes":  3,
+        "talhoesEmEstresse":  1,
+        "piorNivel":  "Moderado",
+        "talhoes":  [
+                        {
+                            "talhaoId":  1,
+                            "nome":  "Horta Norte",
+                            "cultura":  "Alface",
+                            "ultimaUmidade":  28.5,
+                            "nivel":  "Moderado"
+                        },
+                        {
+                            "talhaoId":  2,
+                            "nome":  "Horta Sul",
+                            "cultura":  "Tomate",
+                            "ultimaUmidade":  49,
+                            "nivel":  "Nenhum"
+                        },
+                        {
+                            "talhaoId":  4,
+                            "nome":  "Horta Leste",
+                            "cultura":  "Cenoura",
+                            "ultimaUmidade":  null,
+                            "nivel":  "SemDados"
+                        }
+                    ]
+    }
+]
 
 RESULTADO: esperado 200, obtido 200 -> PASSOU

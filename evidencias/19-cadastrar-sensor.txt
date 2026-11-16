@@ -1,5 +1,5 @@
 TESTE 19 - [201] Cadastrar sensor
-Executado em: 15/11/2026 17:29:30  (20 ms)
+Executado em: 16/11/2026 19:45:04  (13 ms)
 
 >>> REQUISICAO
 POST http://localhost:5080/api/sensores

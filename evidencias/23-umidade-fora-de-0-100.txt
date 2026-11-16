@@ -1,5 +1,5 @@
 TESTE 23 - [400] Umidade fora de 0-100
-Executado em: 15/11/2026 17:29:30  (3 ms)
+Executado em: 16/11/2026 19:45:04  (1 ms)
 
 >>> REQUISICAO
 POST http://localhost:5080/api/leituras
@@ -23,7 +23,7 @@ HTTP 400 Bad Request
                                              "The field UmidadePercentual must be between 0 and 100."
                                          ]
                },
-    "traceId":  "00-ea4b2cdb2c60a332e05e82d17f537a29-bb4f63b7e2796cc9-00"
+    "traceId":  "00-a004356d058f2a902191a14d2c4ef9b6-d863087d567a28f4-00"
 }
 
 RESULTADO: esperado 400, obtido 400 -> PASSOU

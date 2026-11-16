@@ -174,6 +174,16 @@ No Windows Server, instale o **.NET 8 Hosting Bundle**, crie o site apontando pa
 
 **Execução automatizada:** o `testar.bat` zera o banco, sobe a API e roda as mesmas 33 requisições da coleção. As respostas reais ficam em [`evidencias/`](evidencias/), o resumo em `evidencias/relatorio.html` e as colunas de resultado do `TESTES_MANUAIS.md` são preenchidas automaticamente.
 
+**Prints do Insomnia** (em [`evidencias/insomnia/`](evidencias/insomnia/)):
+
+| Caso | Print |
+|---|---|
+| 201 Created: criar fazenda | [01-criar-fazenda-201.png](evidencias/insomnia/01-criar-fazenda-201.png) |
+| 400 Bad Request: fazenda inválida | [02-fazenda-invalida-400.png](evidencias/insomnia/02-fazenda-invalida-400.png) |
+| 404 Not Found: fazenda inexistente | [03-fazenda-inexistente-404.png](evidencias/insomnia/03-fazenda-inexistente-404.png) |
+| 409 Conflict: sensor duplicado | [04-sensor-duplicado-409.png](evidencias/insomnia/04-sensor-duplicado-409.png) |
+| 200 OK: painel de estresse hídrico | [05-painel-estresse-hidrico-200.png](evidencias/insomnia/05-painel-estresse-hidrico-200.png) |
+
 ## Dados e privacidade
 
 Todos os dados do seed são **simulados**. Nenhum dado pessoal real é utilizado.

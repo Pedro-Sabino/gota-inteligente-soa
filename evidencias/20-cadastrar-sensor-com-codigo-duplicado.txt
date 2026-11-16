@@ -1,5 +1,5 @@
 TESTE 20 - [409] Cadastrar sensor com código duplicado
-Executado em: 15/11/2026 17:29:30  (6 ms)
+Executado em: 16/11/2026 19:45:04  (3 ms)
 
 >>> REQUISICAO
 POST http://localhost:5080/api/sensores

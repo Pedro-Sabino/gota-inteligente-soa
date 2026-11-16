@@ -1,5 +1,5 @@
 TESTE 14 - [400] Criar talhão com umidade ideal fora da faixa
-Executado em: 15/11/2026 17:29:30  (2 ms)
+Executado em: 16/11/2026 19:45:04  (1 ms)
 
 >>> REQUISICAO
 POST http://localhost:5080/api/talhoes
@@ -26,7 +26,7 @@ HTTP 400 Bad Request
                                               "The field UmidadeIdealMinima must be between 5 and 95."
                                           ]
                },
-    "traceId":  "00-9a78b4648da9a08759ab0501733b3daa-0a274cc1a04c5ac6-00"
+    "traceId":  "00-42875a4bc59e50a6f26e9ccba524db8d-7086ce7f7ac385af-00"
 }
 
 RESULTADO: esperado 400, obtido 400 -> PASSOU

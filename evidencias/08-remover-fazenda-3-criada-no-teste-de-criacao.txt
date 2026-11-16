@@ -1,5 +1,5 @@
 TESTE 8 - [204] Remover fazenda 3 (criada no teste de criação)
-Executado em: 15/11/2026 17:29:30  (13 ms)
+Executado em: 16/11/2026 19:45:04  (10 ms)
 
 >>> REQUISICAO
 DELETE http://localhost:5080/api/fazendas/3

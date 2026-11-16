@@ -1,5 +1,5 @@
 TESTE 28 - [200] Histórico do talhão 1
-Executado em: 15/11/2026 17:29:30  (13 ms)
+Executado em: 16/11/2026 19:45:04  (9 ms)
 
 >>> REQUISICAO
 GET http://localhost:5080/api/talhoes/1/recomendacoes
@@ -9,30 +9,27 @@ GET http://localhost:5080/api/talhoes/1/recomendacoes
 HTTP 200 OK
 
 
-{
-    "value":  [
-                  {
-                      "id":  2,
-                      "talhaoId":  1,
-                      "acao":  "NaoIrrigar",
-                      "motivo":  "Bomba desligada: 90% de chance de chuva nas próximas 2 horas.",
-                      "probabilidadeChuvaPercentual":  90,
-                      "umidadeSoloPercentual":  28.5,
-                      "origem":  "modelo-ml",
-                      "criadaEm":  "2026-11-15T20:29:30.9571701"
-                  },
-                  {
-                      "id":  1,
-                      "talhaoId":  1,
-                      "acao":  "NaoIrrigar",
-                      "motivo":  "Bomba desligada: 90% de chance de chuva nas próximas 2 horas.",
-                      "probabilidadeChuvaPercentual":  90,
-                      "umidadeSoloPercentual":  31.5,
-                      "origem":  "seed-simulado",
-                      "criadaEm":  "2026-11-15T20:29:29.100617"
-                  }
-              ],
-    "Count":  2
-}
+[
+    {
+        "id":  2,
+        "talhaoId":  1,
+        "acao":  "NaoIrrigar",
+        "motivo":  "Bomba desligada: 90% de chance de chuva nas próximas 2 horas.",
+        "probabilidadeChuvaPercentual":  90,
+        "umidadeSoloPercentual":  28.5,
+        "origem":  "modelo-ml",
+        "criadaEm":  "2026-11-16T22:45:04.6564198"
+    },
+    {
+        "id":  1,
+        "talhaoId":  1,
+        "acao":  "NaoIrrigar",
+        "motivo":  "Bomba desligada: 90% de chance de chuva nas próximas 2 horas.",
+        "probabilidadeChuvaPercentual":  90,
+        "umidadeSoloPercentual":  31.5,
+        "origem":  "seed-simulado",
+        "criadaEm":  "2026-11-16T22:45:03.7034109"
+    }
+]
 
 RESULTADO: esperado 200, obtido 200 -> PASSOU

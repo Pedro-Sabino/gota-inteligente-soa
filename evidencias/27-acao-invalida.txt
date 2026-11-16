@@ -1,5 +1,5 @@
 TESTE 27 - [400] Ação inválida
-Executado em: 15/11/2026 17:29:30  (5 ms)
+Executado em: 16/11/2026 19:45:04  (2 ms)
 
 >>> REQUISICAO
 POST http://localhost:5080/api/recomendacoes
@@ -29,7 +29,7 @@ HTTP 400 Bad Request
                                   "The JSON value could not be converted to GotaInteligente.Api.Domain.AcaoIrrigacao. Path: $.acao | LineNumber: 2 | BytePositionInLine: 20."
                               ]
                },
-    "traceId":  "00-df15b3e8ada964f0a47d92ecce99fc97-60d555726cb5fa3a-00"
+    "traceId":  "00-ad82c3a2329367a15a021cdb8ed088cd-91fb321b966eb08c-00"
 }
 
 RESULTADO: esperado 400, obtido 400 -> PASSOU

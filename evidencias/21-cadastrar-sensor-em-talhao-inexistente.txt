@@ -1,5 +1,5 @@
 TESTE 21 - [404] Cadastrar sensor em talhão inexistente
-Executado em: 15/11/2026 17:29:30  (3 ms)
+Executado em: 16/11/2026 19:45:04  (4 ms)
 
 >>> REQUISICAO
 POST http://localhost:5080/api/sensores

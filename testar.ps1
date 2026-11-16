@@ -1,6 +1,8 @@
 ﻿# Gota Inteligente - execucao das 33 requisicoes da colecao do Insomnia
 # Gera evidencias reais em .\evidencias e preenche o TESTES_MANUAIS.md
 $ErrorActionPreference = 'Stop'
+# No Windows PowerShell 5.1, listas viram {"value":[...],"Count":n} no ConvertTo-Json; isto corrige
+Remove-TypeData System.Array -ErrorAction SilentlyContinue
 $raiz   = $PSScriptRoot
 $apiDir = Join-Path $raiz 'GotaInteligente.Api'
 $evid   = Join-Path $raiz 'evidencias'
@@ -15,8 +17,8 @@ foreach ($f in 'gota-inteligente.db','gota-inteligente.db-shm','gota-inteligente
     $p = Join-Path $apiDir $f
     if (Test-Path $p) { Remove-Item $p -Force }
 }
-if (Test-Path $evid) { Remove-Item $evid -Recurse -Force }
-New-Item -ItemType Directory -Path $evid | Out-Null
+if (Test-Path $evid) { Get-ChildItem $evid -File | Remove-Item -Force }  # preserva evidencias\insomnia
+New-Item -ItemType Directory -Path $evid -Force | Out-Null
 
 # 2) Sobe a API em segundo plano
 Write-Host '[1/3] Subindo a API (pode levar ~30s na primeira vez)...'
