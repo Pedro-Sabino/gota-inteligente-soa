@@ -1,60 +1,60 @@
-# Prompts utilizados (IA como copiloto)
+# Prompts utilizados (IA como revisora)
 
 **Ferramenta:** Claude (Anthropic)
 **Disciplina:** Arquitetura Orientada a Serviços (SOA) e Web Services
 **Uso:** a ideia da solução foi definida em equipe. O código da API foi escrito por **Pedro Paulo**, que também o executou, depurou e testou. O Claude foi usado como **revisor**: revisou o código enviado por Pedro Paulo, apontou problemas, fez pequenas alterações e ajudou na documentação. Cada integrante sabe explicar o que foi entregue.
 
-Os prompts abaixo estão organizados pelas etapas do desenvolvimento e escritos de forma estruturada.
+> **Observação:** o histórico original da conversa com a ferramenta foi perdido e não pôde ser recuperado. Os prompts abaixo foram **reconstruídos de memória** por Pedro Paulo e redigidos de forma estruturada: representam o pedido feito em cada etapa, mas não são a transcrição literal.
 
 ---
 
-## 1. Modelagem do domínio
+## 1. Revisão do modelo de domínio
 
-> Atue como arquiteto de software. Nossa CitizenTech, **Gota Inteligente**, ajuda o agricultor familiar a irrigar no momento certo: um ESP32 mede a umidade do solo e um modelo de ML cruza essa leitura com a previsão do tempo para decidir se a bomba deve ser ligada. Proponha um modelo de domínio para a API que centraliza esses dados, com entidades, atributos, relacionamentos e cardinalidades. Justifique cada entidade a partir do problema do cidadão.
+> Modelei o domínio da API da **Gota Inteligente** (Fazenda → Talhão → Sensor → LeituraUmidade e RecomendacaoIrrigacao) para centralizar os dados do ESP32 e do modelo de IA que decide a irrigação. Revise as entidades, os relacionamentos e as cardinalidades, e aponte se algo não se justifica pelo problema do agricultor.
 
-**Resultado:** entidades Fazenda → Talhão → Sensor → LeituraUmidade e RecomendacaoIrrigacao.
+**Resultado:** modelo de domínio validado, com pequenos ajustes.
 
-## 2. Contrato da API REST
+## 2. Revisão do contrato da API REST
 
-> A partir desse modelo de domínio, desenhe os endpoints REST da API em ASP.NET Core (.NET 8). A API terá quatro consumidores: o ESP32 (envia leituras), o modelo de IA em Python (grava recomendações), o app React Native (consulta o último alerta) e um painel WinForms (monitora o estresse hídrico regional). Para cada endpoint, indique método HTTP, rota, consumidor, payload e códigos de resposta (200, 201, 204, 400, 404, 409, 422).
+> Desenhei os endpoints da API em ASP.NET Core (.NET 8) para quatro consumidores: o ESP32, o modelo de IA em Python, o app React Native e o painel WinForms. Revise os métodos HTTP, as rotas, os payloads e os códigos de resposta (200, 201, 204, 400, 404, 409 e 422).
 
-**Resultado:** tabela de endpoints do README e separação por controllers.
+**Resultado:** ajustes na tabela de endpoints e na separação por controllers.
 
-## 3. Persistência com EF Core e migrations
+## 3. Revisão da persistência com EF Core
 
-> Implemente a camada de dados com Entity Framework Core 8 e SQLite usando Code First. Configure no `OnModelCreating` os tamanhos de campo, a exclusão em cascata, o índice único para o código do sensor e índices compostos para consultas por data. Explique como gerar e aplicar as migrations e como popular o banco apenas com dados simulados na primeira execução.
+> Segue a camada de dados com Entity Framework Core 8 e SQLite (Code First), com o `AppDbContext`, o seed de dados simulados e a migration inicial. Revise a configuração do `OnModelCreating` (tamanhos de campo, exclusão em cascata, índice único do código do sensor e índices compostos por data).
 
-**Resultado:** `AppDbContext`, `DbSeeder` e a migration `CriacaoInicial`.
+**Resultado:** revisão de `AppDbContext`, `DbSeeder` e da migration `CriacaoInicial`.
 
-## 4. DTOs, validação e tratamento de erros
+## 4. Revisão de DTOs, validação e erros
 
-> Crie DTOs de entrada e saída separados das entidades, com validação por DataAnnotations (faixas de umidade de 0 a 100%, UF com 2 letras, enum de ação válido). Padronize as respostas de erro com `ProblemDetails` e explique quando usar 404, 409 e 422 nesta API.
+> Revise os DTOs de entrada e saída e as validações por DataAnnotations (umidade de 0 a 100%, UF com 2 letras, enum de ação). Confirme se estou usando 404, 409 e 422 nos casos certos e se as respostas de erro seguem o `ProblemDetails`.
 
-**Resultado:** pasta `Dtos/` e validações nos controllers.
+**Resultado:** correções pontuais na pasta `Dtos/` e nas validações dos controllers.
 
-## 5. Regra de negócio: estresse hídrico
+## 5. Revisão da regra de estresse hídrico
 
-> Proponha uma regra simples e explicável para classificar o estresse hídrico de um talhão a partir da umidade atual e da umidade ideal mínima da cultura. Ela deve ter níveis claros para que o Sindicato Rural entenda o painel sem conhecimento técnico.
+> Implementei a classificação do estresse hídrico de um talhão a partir da umidade atual e da umidade ideal mínima da cultura (Nenhum, Leve, Moderado e Severo). Revise se a regra está correta e se é fácil de explicar para o Sindicato Rural.
 
-**Resultado:** `EstresseHidricoCalculator` com os níveis Nenhum, Leve, Moderado e Severo.
+**Resultado:** `EstresseHidricoCalculator` revisado.
 
-## 6. Endpoints agregados para o painel
+## 6. Revisão dos endpoints agregados
 
-> Implemente endpoints de leitura agregada para o painel do Sindicato Rural: estresse hídrico por fazenda, com o pior nível e os talhões em estresse, com filtro por município, e um resumo com um indicador de impacto mensurável da solução. Evite consultas N+1.
+> Revise os endpoints do painel (estresse hídrico por fazenda com filtro por município e resumo com o indicador de impacto). Verifique se há consultas N+1 ou cálculos incorretos.
 
-**Resultado:** `PainelController` e o indicador "irrigações evitadas nos últimos 30 dias".
+**Resultado:** ajustes no `PainelController` e no indicador "irrigações evitadas nos últimos 30 dias".
 
-## 7. Plano de testes manuais
+## 7. Revisão do plano de testes
 
-> Monte um plano de testes manuais no Insomnia que cubra os caminhos de sucesso e de erro de cada endpoint. Para cada caso, informe o status esperado e o que validar na resposta. Gere a coleção em formato de importação do Insomnia.
+> Revise o meu plano de testes manuais e a coleção do Insomnia. Aponte caminhos de sucesso ou de erro que ficaram sem cobertura.
 
-**Resultado:** `insomnia/GotaInteligente.insomnia.json` e `TESTES_MANUAIS.md`.
+**Resultado:** `insomnia/GotaInteligente.insomnia.json` e `TESTES_MANUAIS.md` revisados.
 
 ## 8. Evolução do esquema
 
-> Precisamos guardar a localização da fazenda para que o modelo de IA consulte a previsão do tempo do local. Adicione latitude e longitude opcionais, com validação de faixa, e gere uma nova migration sem perder os dados existentes.
+> Adicionei latitude e longitude opcionais à fazenda, para o modelo de IA consultar a previsão do tempo do local. Revise a validação de faixa e a nova migration, garantindo que os dados existentes não se percam.
 
-**Resultado:** migration `AdicionaCoordenadasFazenda`.
+**Resultado:** migration `AdicionaCoordenadasFazenda` revisada.
 
 ## 9. Ambiente e ferramentas
 
@@ -62,16 +62,16 @@ Os prompts abaixo estão organizados pelas etapas do desenvolvimento e escritos 
 
 **Resultado:** `dotnet-ef` fixado na versão 8.0.11.
 
-## 10. Documentação
+## 10. Revisão da documentação
 
-> Escreva o README do repositório com a ficha da CitizenTech, o papel da API na solução, o diagrama de integração, a estrutura de pastas, o modelo de domínio, como executar, o histórico de migrations e a tabela de endpoints.
+> Revise o README (ficha da CitizenTech, papel da API, diagrama de integração, estrutura de pastas, modelo de domínio, execução, migrations e endpoints) e aponte o que estiver faltando ou pouco claro.
 
-**Resultado:** `README.md`.
+**Resultado:** `README.md` revisado.
 
 ---
 
 ## Reflexão da equipe
 
-- **O que a IA acelerou:** a estrutura inicial do projeto, a configuração do EF Core e a coleção de testes.
+- **Onde a revisão da IA ajudou:** apontou ajustes pontuais na configuração do EF Core, nas validações e nos códigos HTTP de erro.
 - **O que validamos à mão:** a regra de estresse hídrico (ex.: 31,5% ÷ 45% = 70% → Moderado), os códigos HTTP de cada caso de erro e os logs das migrations.
 - **O que aprendemos:** a versão das ferramentas importa (a versão mais recente do `dotnet-ef` não funciona com o SDK 8), e dados de localização na API são essenciais para integrar com a previsão do tempo da IA.
