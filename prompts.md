@@ -2,7 +2,7 @@
 
 **Ferramenta:** Claude (Anthropic)
 **Disciplina:** Arquitetura Orientada a Serviços (SOA) e Web Services
-**Uso:** a IA foi usada como copiloto em modelagem, implementação, depuração e documentação. Todo código gerado foi revisado, executado e testado pela equipe, e cada integrante sabe explicar o que foi entregue.
+**Uso:** a ideia da solução foi definida em equipe. O desenvolvimento da API foi conduzido por **Pedro Paulo**, que executou, depurou e testou todo o código. O Claude foi usado como copiloto para gerar e revisar código, modelagem e documentação, sempre a partir dos pedidos registrados abaixo. Cada integrante sabe explicar o que foi entregue.
 
 Os prompts abaixo estão organizados pelas etapas do desenvolvimento e escritos de forma estruturada.
 
