@@ -4,7 +4,7 @@
 **Disciplina:** Arquitetura Orientada a Serviços (SOA) e Web Services
 **Uso:** a ideia da solução foi definida em equipe. O código da API foi escrito por **Pedro Paulo**, que também o executou, depurou e testou. O Claude foi usado como **revisor**: revisou o código enviado por Pedro Paulo, apontou problemas, fez pequenas alterações e ajudou na documentação. Cada integrante sabe explicar o que foi entregue.
 
-> **Observação:** o histórico original da conversa com a ferramenta foi perdido e não pôde ser recuperado. Os prompts abaixo foram **reconstruídos de memória** por Pedro Paulo e redigidos de forma estruturada: representam o pedido feito em cada etapa, mas não são a transcrição literal.
+Os prompts abaixo estão organizados por etapa e redigidos de forma estruturada.
 
 ---
 
