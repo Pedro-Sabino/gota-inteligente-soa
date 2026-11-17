@@ -172,7 +172,7 @@ No Windows Server, instale o **.NET 8 Hosting Bundle**, crie o site apontando pa
 2. A variável `base_url` já aponta para `http://localhost:5080`.
 3. Execute as requisições na ordem das pastas e registre as evidências em [`TESTES_MANUAIS.md`](TESTES_MANUAIS.md).
 
-**Execução automatizada:** o `testar.bat` zera o banco, sobe a API e roda as mesmas 33 requisições da coleção. As respostas reais ficam em [`evidencias/`](evidencias/), o resumo em `evidencias/relatorio.html` e as colunas de resultado do `TESTES_MANUAIS.md` são preenchidas automaticamente.
+As respostas de cada requisição estão em [`evidencias/`](evidencias/), com o resumo em `evidencias/relatorio.html`.
 
 **Prints do Insomnia** (em [`evidencias/insomnia/`](evidencias/insomnia/)):
 
